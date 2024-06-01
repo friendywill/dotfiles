@@ -1,0 +1,1 @@
+/Users/friendywill/dotfiles/.tmux
