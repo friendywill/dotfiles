@@ -32,4 +32,6 @@ cat >.gitconfig <<EOF
 	gpgsign = true
 [user]
 	signingKey = $key_id
+  name = friendywill
+  email = will@friendy.dev
 EOF
