@@ -21,3 +21,15 @@ key_id=$(gpg --batch --generate-key tmpgit 2>&1 | awk -F/ '/^gpg: revocation cer
 rm tmpgit
 gh auth refresh -s write:gpg_key
 gpg --armor --export $key_id | gh gpg-key add -t $HOST -
+cat >.gitconfig <<EOF
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/local/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/local/bin/gh auth git-credential
+[commit]
+	gpgsign = true
+[user]
+	signingKey = $key_id
+EOF
