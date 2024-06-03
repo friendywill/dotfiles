@@ -2,7 +2,6 @@ tap "arl/arl"
 tap "homebrew/bundle"
 tap "jesseduffield/lazygit"
 tap "michidk/tools"
-tap "sambadevi/powerlevel9k"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
 # GNU compiler collection
