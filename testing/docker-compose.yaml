@@ -1,0 +1,13 @@
+
+version: '3.8'
+
+services:
+  ubuntu:
+    image: ubuntu:latest
+    container_name: ubuntu_interactive
+    stdin_open: true
+    tty: true
+    volumes:
+      - ../:/root/dotfiles
+    working_dir: /root/dotfiles
+    command: /bin/bash
