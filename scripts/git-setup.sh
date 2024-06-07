@@ -20,7 +20,7 @@ EOF
 key_id=$(gpg --batch --generate-key tmpgit 2>&1 | awk -F/ '/^gpg: revocation certificate stored as/ { sub(/\.rev.*/, "", $NF); print $NF }')
 rm tmpgit
 gh auth refresh -s write:gpg_key
-gpg --armor --export $key_id | gh gpg-key add -t $HOST -
+gpg --armor --export $key_id | gh gpg-key add $HOST -
 cat >.gitconfig <<EOF
 [credential "https://github.com"]
 	helper = 
