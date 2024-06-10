@@ -1,4 +1,4 @@
-SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
+SCRIPT_DIR=$(cd ../ "$(dirname -- "${SCRIPT_DIR}")" &>/dev/null && pwd)
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ln -s "$SCRIPT_DIR/../.p10k.zsh" ~/.p10k.zsh
 ln -s "$SCRIPT_DIR/../.tmux" ~/.tmux
@@ -12,4 +12,4 @@ git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh/
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/.oh-my-zsh/custom/themes/powerlevel10k
 chsh -s $(which zsh)
 zsh source ~/.zshrc
-zsh
+echo $SCRIPT_DIR
