@@ -18,4 +18,5 @@ curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/lates
 tar xf lazygit.tar.gz lazygit
 install lazygit /usr/local/bin
 sudo mv ~/.* ~/.backup
-zsh ./dotfiles.sh
+SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
+zsh $SCRIPT_DIR/dotfiles.sh
