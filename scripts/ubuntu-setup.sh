@@ -5,7 +5,7 @@ mkdir ~/.backup
 sudo mv ~/.* ~/.backup/
 sudo apt update
 sudo apt upgrade -y
-sudo apt install curl git speedtest-cli ripgrep fd-find wget zsh snapd -y
+sudo apt install gcc curl git speedtest-cli ripgrep fd-find wget zsh snapd -y
 sudo systemctl unmask snapd.service
 sudo systemctl enable snapd.service
 sudo systemctl start snapd.service
