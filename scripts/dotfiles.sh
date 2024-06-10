@@ -10,4 +10,4 @@ ln -s ~/dotfiles/.gitconfig ~/.gitconfig
 git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh/
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/.oh-my-zsh/custom/themes/powerlevel10k
 chsh -s $(which zsh)
-zsh source ~/.zshrc
+zsh
