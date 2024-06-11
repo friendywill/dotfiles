@@ -15,4 +15,6 @@ personal configuration.
 
 4. Set default browser if applicable,
 
-5. Done!
+5. Go into tmux, prefix + I,
+
+6. Done!
