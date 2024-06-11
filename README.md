@@ -11,10 +11,8 @@ personal configuration.
 
 2. Run script with the OS name on it,
 
-3. Run ZSH setup script,
+3. Run Git setup, only for github,
 
-4. Run Git setup,
+4. Set default browser if applicable,
 
-5. Set default browser if applicable,
-
-6. 
+5. Done!
