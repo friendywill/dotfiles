@@ -6,7 +6,7 @@ mkdir ~/.gnupg
 export GNUPGHOME="~/.gnupg"
 github_username=$(gh api user --jq '.login')
 github_email=$(gh api user/emails --jq '.email')
-cat >tmpgit <<EOF
+cat >/tmp/tmpgit <<EOF
 	%no-protection
 	%no-ask-passphrase
 	%echo Generating PGP Key for Github
@@ -21,8 +21,8 @@ cat >tmpgit <<EOF
 	%commit
 	%echo done
 EOF
-key_id=$(gpg --batch --generate-key tmpgit 2>&1 | awk -F/ '/^gpg: revocation certificate stored as/ { sub(/\.rev.*/, "", $NF); print $NF }')
-rm tmpgit
+key_id=$(gpg --batch --generate-key /tmp/tmpgit 2>&1 | awk -F/ '/^gpg: revocation certificate stored as/ { sub(/\.rev.*/, "", $NF); print $NF }')
+rm /tmp/tmpgit
 gh auth refresh -s write:gpg_key
 gpg --armor --export $key_id | gh gpg-key add $HOST -
 cat >.gitconfig <<EOF
