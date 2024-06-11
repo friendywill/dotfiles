@@ -4,6 +4,8 @@ mkdir ~/.backup
 mv ~/.gitconfig ~/.backup/
 mkdir ~/.gnupg
 export GNUPGHOME="~/.gnupg"
+github_username=$(gh api user --jq '.login')
+github_email=$(gh api user/emails --jq '.email')
 cat >tmpgit <<EOF
 	%no-protection
 	%no-ask-passphrase
@@ -12,15 +14,13 @@ cat >tmpgit <<EOF
 	Key-Length: 4096
 	Subkey-Type: RSA
 	Subkey-Length: 4096
-	Name-Real: friendywill
-	Name-Email: will@friendy.dev
+	Name-Real: $github_username
+	Name-Email: $github_email
 	Expire-Date: 0
 	Key-Usage: auth,sign
 	%commit
 	%echo done
 EOF
-github_username=$(gh api user --jq '.login')
-github_email=$(gh api user/emails --jq '.email')
 key_id=$(gpg --batch --generate-key tmpgit 2>&1 | awk -F/ '/^gpg: revocation certificate stored as/ { sub(/\.rev.*/, "", $NF); print $NF }')
 rm tmpgit
 gh auth refresh -s write:gpg_key
