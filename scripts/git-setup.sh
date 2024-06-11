@@ -1,5 +1,7 @@
-gh auth login
+gh auth login --hostname github.com --git-protocol ssh
 gh auth setup-git
+mkdir ~/.backup
+mv ~/.gitconfig ~/.backup/
 mkdir ~/.gnupg
 export GNUPGHOME="~/.gnupg"
 cat >tmpgit <<EOF
@@ -17,6 +19,8 @@ cat >tmpgit <<EOF
 	%commit
 	%echo done
 EOF
+github_username=$(gh api user --jq '.login')
+github_email=$(gh api user/emails --jq '.email')
 key_id=$(gpg --batch --generate-key tmpgit 2>&1 | awk -F/ '/^gpg: revocation certificate stored as/ { sub(/\.rev.*/, "", $NF); print $NF }')
 rm tmpgit
 gh auth refresh -s write:gpg_key
@@ -32,6 +36,6 @@ cat >.gitconfig <<EOF
 	gpgsign = true
 [user]
 	signingKey = $key_id
-  name = friendywill
-  email = will@friendy.dev
+  name = $github_username 
+  email = $github_email
 EOF
