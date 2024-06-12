@@ -1,4 +1,4 @@
-gh auth login --hostname github.com --git-protocol ssh
+gh auth login --hostname github.com
 gh auth setup-git
 mkdir ~/.backup
 mv ~/.gitconfig ~/.backup/
