@@ -1,3 +1,4 @@
 .gitconfig
 .DS_Store
 .config/gh/hosts.yml
+.tmux/plugins/*
