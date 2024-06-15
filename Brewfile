@@ -2,8 +2,11 @@ tap "arl/arl"
 tap "homebrew/bundle"
 tap "jesseduffield/lazygit"
 tap "michidk/tools"
+tap "sambadevi/powerlevel9k"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
+# Command-line fuzzy finder written in Go
+brew "fzf"
 # GNU compiler collection
 brew "gcc"
 # GitHub command-line tool
@@ -20,6 +23,8 @@ brew "ripgrep"
 brew "tailscale"
 # Terminal multiplexer
 brew "tmux"
+# Shell extension to navigate your filesystem faster
+brew "zoxide"
 # Git in your tmux status bar.
 brew "arl/arl/gitmux"
 # A simple terminal UI for git commands, written in Go
@@ -30,7 +35,6 @@ brew "michidk/tools/punktf"
 brew "sambadevi/powerlevel9k/powerlevel9k"
 # Voice and text chat software
 cask "discord"
-# Developer targeted fonts with a high number of glyphs
 cask "font-zed-mono-nerd-font"
 # Music streaming service
 cask "spotify"
