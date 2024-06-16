@@ -20,3 +20,5 @@ personal configuration.
 6. Ensure a nerd font is used with whatever terminal you use [Nerd Fonts - Iconic font aggregator, glyphs/icons collection, & fonts patcher](https://www.nerdfonts.com/),
 
 7. Done!
+
+TODO: Add some way of generating a new key though one exists on both github and locally
