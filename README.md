@@ -21,4 +21,5 @@ personal configuration.
 
 7. Done!
 
-TODO: Add some way of generating a new key though one exists on both github and locally
+TODO:
+

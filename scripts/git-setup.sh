@@ -3,10 +3,12 @@ if ! gh auth status >/dev/null 2>&1; then
 	echo "Please log in to GitHub CLI."
 	gh auth login --hostname github.com
 fi
+# Refresh auth with scope of the user to gain permission to add GPG key
 gh auth refresh -h github.com -s user
+# Backup any previous git configuration
 mkdir -p ~/.backup
 mv ~/.gitconfig ~/.backup/
-rm ~/.gitconfig
+# Make GNU pretty good privacy directory if it doesn't exist
 mkdir -p ~/.gnupg
 export GNUPGHOME="~/.gnupg"
 github_username=$(gh api user --jq '.login')
@@ -18,6 +20,7 @@ existing_keys=$(gpg --list-keys --keyid-format LONG | grep '^pub' | awk '{print 
 # Check if a GPG key exists on GitHub
 existing_gpg_keys=$(gh api /user/gpg_keys --jq '.[].key_id')
 
+# Check which keys are currently on Github, and on the local device.
 for key_id in $existing_gpg_keys; do
 	if echo "$existing_keys" | grep -q "$key_id"; then
 		existing_gpg_keys="$key_id"
@@ -26,7 +29,7 @@ for key_id in $existing_gpg_keys; do
 	fi
 done
 
-# Prompt user to select an email address
+# Prompt user to select an email address that exists on github
 echo "Choose an email address to use for Git configuration:"
 index=1
 selected_email=""
@@ -95,7 +98,7 @@ else
 		fi
 	else
 		echo "GPG keys already exist on GitHub: $existing_gpg_keys"
-		read -p "Would you like to add another key or use the existing ones? (a: add another / e: existing): " github_key_choice
+		read -p "Would you like to keep the (e)xisting key, add a local (d)ifferent existing key, or (g)enerate a new one? (e: existing / d: different existing / g: generate another): " github_key_choice
 		if [ "$github_key_choice" = "a" ]; then
 			read -p "Select a key number to add: " key_number
 			key_id=$(echo "$existing_keys" | sed -n "${key_number}p")
@@ -104,6 +107,10 @@ else
 			read -p "Enter a title for the GPG key [${HOST}]: " key_title
 			key_title=${key_title:-$HOST}
 			gh gpg-key add /tmp/tmpgitkeypublic -t "$key_title"
+		elif [ "$github_key_choice" = "d" ]; then
+			generate_gpg_key
+		elif [ "$github_key_choice" = "e" ]; then
+			$key_id=$existing_gpg_keys
 		fi
 	fi
 fi
