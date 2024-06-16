@@ -4,7 +4,7 @@ if ! gh auth status >/dev/null 2>&1; then
 	gh auth login --hostname github.com
 fi
 # Refresh auth with scope of the user to gain permission to add GPG key
-gh auth refresh -h github.com -s user
+gh auth refresh -h github.com -s admin:gpg_key
 # Backup any previous git configuration
 mkdir -p ~/.backup
 mv ~/.gitconfig ~/.backup/
@@ -26,6 +26,8 @@ for key_id in $existing_gpg_keys; do
 		existing_gpg_keys="$key_id"
 		echo $existing_gpg_keys
 		break
+	else
+		existing_gpg_keys=""
 	fi
 done
 
@@ -110,7 +112,7 @@ else
 		elif [ "$github_key_choice" = "d" ]; then
 			generate_gpg_key
 		elif [ "$github_key_choice" = "e" ]; then
-			$key_id=$existing_gpg_keys
+			key_id=$existing_gpg_keys
 		fi
 	fi
 fi
