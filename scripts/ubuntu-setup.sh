@@ -1,7 +1,7 @@
 #!/bin/bash
 sudo apt update
 sudo apt upgrade -y
-sudo apt install gcc curl git speedtest-cli ripgrep fd-find wget zsh snapd -y
+sudo apt install fzf gcc curl git speedtest-cli ripgrep fd-find wget zsh snapd -y
 sudo systemctl unmask snapd.service
 sudo systemctl enable snapd.service
 sudo systemctl start snapd.service
@@ -23,3 +23,10 @@ git clone https://github.com/tmux-plugins/tpm ~/dotfiles/.tmux/plugins/tpm
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/dotfiles/.oh-my-zsh/custom/themes/powerlevel10k
 tar xf lazygit.tar.gz lazygit
 sudo install lazygit /usr/local/bin
+(type -p wget >/dev/null || (sudo apt update && sudo apt-get install wget -y)) &&
+	sudo mkdir -p -m 755 /etc/apt/keyrings &&
+	wget -qO- https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo tee /etc/apt/keyrings/githubcli-archive-keyring.gpg >/dev/null &&
+	sudo chmod go+r /etc/apt/keyrings/githubcli-archive-keyring.gpg &&
+	echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list >/dev/null &&
+	sudo apt update &&
+	sudo apt install gh -y

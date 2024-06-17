@@ -6,8 +6,6 @@ fi
 # Refresh auth with scope of the user to gain permission to add GPG key
 gh auth refresh -h github.com -s admin:gpg_key,user
 # Backup any previous git configuration
-mkdir -p ~/.backup
-mv ~/.gitconfig ~/.backup/
 # Make GNU pretty good privacy directory if it doesn't exist
 mkdir -p ~/.gnupg
 export GNUPGHOME="~/.gnupg"
@@ -117,19 +115,22 @@ else
 	fi
 fi
 
-cat >~/.gitconfig <<EOF
-[credential "https://github.com"]
-    helper = 
-    helper = !/usr/local/bin/gh auth git-credential
-[credential "https://gist.github.com"]
-    helper = 
-    helper = !/usr/local/bin/gh auth git-credential
-[commit]
-    gpgsign = true
+cat >~/dotfiles/.git/config <<EOF
+[core]
+        repositoryformatversion = 0
+        filemode = true
+        bare = false
+        logallrefupdates = true
+[remote "origin"]
+        url = https://github.com/friendywill/dotfiles
+        fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "master"]
+        remote = origin
+        merge = refs/heads/master
 [user]
-    signingKey = $key_id
-    name = $github_username 
-    email = $github_email
+        signingKey = $key_id
+        name = $github_username 
+        email = $github_email
 EOF
 
 echo "Git setup completed."
