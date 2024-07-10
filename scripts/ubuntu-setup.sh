@@ -1,7 +1,7 @@
 #!/bin/bash
 sudo apt update
 sudo apt upgrade -y
-sudo apt install fzf gcc curl git speedtest-cli ripgrep fd-find wget zsh snapd -y
+sudo apt install ripgrep fzf gcc curl git speedtest-cli ripgrep fd-find wget zsh snapd -y
 sudo systemctl unmask snapd.service
 sudo systemctl enable snapd.service
 sudo systemctl start snapd.service
@@ -19,6 +19,8 @@ fi
 LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
 curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+curl https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | bash
+mv ~/.local/bin/lazydocker /usr/bin
 git clone https://github.com/ohmyzsh/ohmyzsh.git ~/dotfiles/.oh-my-zsh/
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/dotfiles/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/dotfiles/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
@@ -28,6 +30,7 @@ git clone https://github.com/tmux-plugins/tpm ~/dotfiles/.tmux/plugins/tpm
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/dotfiles/.oh-my-zsh/custom/themes/powerlevel10k
 tar xf lazygit.tar.gz lazygit
 sudo install lazygit /usr/local/bin
+nvm install --lts
 (type -p wget >/dev/null || (sudo apt update && sudo apt-get install wget -y)) &&
 	sudo mkdir -p -m 755 /etc/apt/keyrings &&
 	wget -qO- https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo tee /etc/apt/keyrings/githubcli-archive-keyring.gpg >/dev/null &&
