@@ -6,12 +6,16 @@ sudo systemctl unmask snapd.service
 sudo systemctl enable snapd.service
 sudo systemctl start snapd.service
 sudo snap install nvim --classic
-wget -P ~/.local/share/fonts https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Hermit.zip &&
-	cd ~/.local/share/fonts &&
-	unzip Hermit.zip &&
-	rm Hermit.zip &&
-	fc-cache -fv &&
-	cd ~/
+if [ ! -f ~/.local/share/fonts/HurmitNerdFont-Regular.otf ]; then
+    wget -P ~/.local/share/fonts https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Hermit.zip
+    cd ~/.local/share/fonts
+    unzip Hermit.zip
+    rm Hermit.zip
+    fc-cache -fv
+    cd ~/
+else
+    echo "Hermit.zip already exists, skipping download."
+fi
 LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
 curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
