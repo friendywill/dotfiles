@@ -2,3 +2,5 @@
 .DS_Store
 .config/gh/hosts.yml
 .tmux/plugins/*
+.config/rclone/rclone.conf
+.config/nextjs-nodejs/config.json
