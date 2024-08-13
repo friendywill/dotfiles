@@ -112,6 +112,7 @@ alias lg=lazygit
 alias nv=nvim
 alias z="source ~/.zshrc"
 alias lzd=lazydocker
+alias docker-compose="docker compose"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
