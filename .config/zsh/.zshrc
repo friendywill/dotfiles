@@ -152,10 +152,6 @@ export XDG_RUNTIME_DIR="/run/user/$(id -u)"
 compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
 export HISTFILE="$XDG_STATE_HOME"/zsh/history
 
-# bash
-# History
-export HISTFILE="${XDG_STATE_HOME}"/bash/history
-
 # GNU
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 
