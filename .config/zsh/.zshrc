@@ -167,7 +167,20 @@ export ZDOTDIR="$HOME"/.config/zsh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ${ZDOTDIR:-~}/.p10k.zsh ]] || source ${ZDOTDIR:-~}/.p10k.zsh
 
-if [ -f ~/shell.nix ]; then
-  nix-shell ~/shell.nix --pure
+# if [ -f ~/dotfiles/.config/home-shell.nix ]; then
+#   nix-shell ~/dotfiles/.config/home-shell.nix --pure
+# fi
+
+# Git and Zsh customizations
+if [ ! -d ~/.local/share/tmux/plugins/tpm ]; then
+    git clone https://github.com/tmux-plugins/tpm ~/.local/share/tmux/plugins/tpm
 fi
 
+if [ ! -d ~/.config/.oh-my-zsh/custom/themes/powerlevel10k ]; then
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.config/.oh-my-zsh/custom/themes/powerlevel10k
+fi
+
+# Config configuration
+mkdir -p ~/.config > /dev/null
+ln -s ~/dotfiles/.config/* ~/.config > /dev/null 2>&1
+zsh
