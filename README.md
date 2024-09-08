@@ -21,5 +21,7 @@ personal configuration.
 
 7. Done!
 
-TODO:
+### Nix
 
+1. To install Nix, follow
+[Download | Nix & NixOS](https://nixos.org/download/#nix-install-linux)
