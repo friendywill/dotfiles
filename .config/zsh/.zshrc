@@ -167,5 +167,7 @@ export ZDOTDIR="$HOME"/.config/zsh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ${ZDOTDIR:-~}/.p10k.zsh ]] || source ${ZDOTDIR:-~}/.p10k.zsh
 
-
+if [ -f ~/shell.nix ]; then
+  nix-shell ~/shell.nix --pure
+fi
 
