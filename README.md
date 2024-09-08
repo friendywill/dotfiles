@@ -25,3 +25,5 @@ personal configuration.
 
 1. To install Nix, follow
 [Download | Nix & NixOS](https://nixos.org/download/#nix-install-linux)
+or run nix.sh under scripts, ensure that systemd is enabled in WSL:
+[Advanced settings configuration in WSL | Microsoft Learn](https://learn.microsoft.com/en-us/windows/wsl/wsl-config#systemd-support)
