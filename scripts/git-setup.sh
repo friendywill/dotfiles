@@ -9,8 +9,7 @@ gh auth refresh -h github.com -s admin:gpg_key,user
 mkdir -p ~/.backup
 mv ~/.gitconfig ~/.backup/
 # Make GNU pretty good privacy directory if it doesn't exist
-mkdir -p ~/.gnupg
-export GNUPGHOME="~/.gnupg"
+mkdir -p "$XDG_DATA_HOME"/gnupg
 github_username=$(gh api user --jq '.login')
 emails=$(gh api user/emails --jq '.[].email')
 
@@ -117,7 +116,7 @@ else
 	fi
 fi
 
-cat >~/.gitconfig <<EOF
+cat >$XDG_CONFIG_HOME/.gitconfig <<EOF
 [credential "https://github.com"]
     helper = 
     helper = !/usr/local/bin/gh auth git-credential
