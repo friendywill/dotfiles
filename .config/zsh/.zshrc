@@ -111,6 +111,7 @@ alias nv=nvim
 alias z="source ~/.zshrc"
 alias lzd=lazydocker
 alias docker-compose="docker compose"
+alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
 
 
 export NVM_DIR="$HOME/.nvm"
