@@ -31,13 +31,13 @@ curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/lates
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 curl https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | bash
 sudo mv ~/.local/bin/lazydocker /usr/bin
-git clone https://github.com/ohmyzsh/ohmyzsh.git ~/dotfiles/.oh-my-zsh/
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/dotfiles/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/dotfiles/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-git clone https://github.com/mafredri/zsh-async ~/dotfiles/.oh-my-zsh/plugins/async
-git clone https://github.com/lukechilds/zsh-nvm ~/dotfiles/.oh-my-zsh/custom/plugins/zsh-nvm
-git clone https://github.com/tmux-plugins/tpm ~/dotfiles/.tmux/plugins/tpm
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/dotfiles/.oh-my-zsh/custom/themes/powerlevel10k
+git clone https://github.com/ohmyzsh/ohmyzsh.git ~/dotfiles/.config/.oh-my-zsh/
+git clone https://github.com/zsh-users/zsh-autosuggestions ~dotfiles/.config/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/dotfiles/.config/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+git clone https://github.com/mafredri/zsh-async ~/dotfiles/.config/.oh-my-zsh/plugins/async
+git clone https://github.com/lukechilds/zsh-nvm ~/dotfiles/.config/.oh-my-zsh/custom/plugins/zsh-nvm
+git clone https://github.com/tmux-plugins/tpm ~/.local/share/tmux/plugins/tpm
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/dotfiles/.config/.oh-my-zsh/custom/themes/powerlevel10k
 tar xf lazygit.tar.gz lazygit
 sudo install lazygit /usr/local/bin
 nvm install --lts
