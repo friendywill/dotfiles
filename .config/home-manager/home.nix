@@ -25,7 +25,6 @@
     pkgs.zsh
     pkgs.docker
     pkgs.wget
-    pkgs.nerdfonts
     pkgs.tmux
     pkgs.gh
     pkgs.neovim
