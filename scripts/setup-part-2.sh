@@ -4,6 +4,8 @@ nix-channel --update
 mkdir ~/.config/
 ln -s ~/dotfiles/.zshrc ~/.zshrc
 ln -s ~/dotfiles/.config/* ~/.config
+mkdir /etc/zsh/
+sudo cp $HOME/zshenv /etc/zsh/zshenv
 nix-shell '<home-manager>' -A install
 chsh -s $(which zsh)
 zsh
