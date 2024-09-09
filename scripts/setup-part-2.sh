@@ -2,7 +2,6 @@ nix-channel --add https://github.com/nix-community/home-manager/archive/master.t
 nix-channel --update
 
 mkdir ~/.config/
-ln -s ~/dotfiles/.zshrc ~/.zshrc
 ln -s ~/dotfiles/.config/* ~/.config
 sudo mkdir /etc/zsh/
 sudo cp $HOME/dotfiles/zshenv /etc/zsh/zshenv
