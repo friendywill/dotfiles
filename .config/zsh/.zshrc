@@ -1,6 +1,35 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
+
+# XDG Config
+export ZDOTDIR="$HOME"/.config/zsh
+# User-specific data files
+export XDG_DATA_HOME="$HOME/.local/share"
+
+# User-specific configuration files
+export XDG_CONFIG_HOME="$HOME/.config"
+
+# User-specific state files (e.g., session state, logs)
+export XDG_STATE_HOME="$HOME/.local/state"
+
+# User-specific cache files
+export XDG_CACHE_HOME="$HOME/.cache"
+
+# User-specific runtime files (e.g., sockets, temporary files)
+export XDG_RUNTIME_DIR="/run/user/$(id -u)"
+
+# ZSH
+export HISTFILE="$XDG_STATE_HOME"/zsh/history
+
+# GNU
+export GNUPGHOME="$XDG_DATA_HOME"/gnupg
+
+# Node Version Manager
+export NVM_DIR="$XDG_DATA_HOME"/nvm
+
+# ohmyzsh
+export ZSH="$XDG_DATA_HOME"/oh-my-zsh
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -108,7 +137,7 @@ plugins=(git)
 #[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 alias lg=lazygit
 alias nv=nvim
-alias z="source ~/.zshrc"
+alias z="source $ZDOTDIR/.zshrc"
 alias lzd=lazydocker
 alias docker-compose="docker compose"
 alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
@@ -133,37 +162,8 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-# XDG Config
-# User-specific data files
-export XDG_DATA_HOME="$HOME/.local/share"
-
-# User-specific configuration files
-export XDG_CONFIG_HOME="$HOME/.config"
-
-# User-specific state files (e.g., session state, logs)
-export XDG_STATE_HOME="$HOME/.local/state"
-
-# User-specific cache files
-export XDG_CACHE_HOME="$HOME/.cache"
-
-# User-specific runtime files (e.g., sockets, temporary files)
-export XDG_RUNTIME_DIR="/run/user/$(id -u)"
-
-# ZSH
-compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
-export HISTFILE="$XDG_STATE_HOME"/zsh/history
-
-# GNU
-export GNUPGHOME="$XDG_DATA_HOME"/gnupg
-
-# Node Version Manager
-export NVM_DIR="$XDG_DATA_HOME"/nvm
-
-# ohmyzsh
-export ZSH="$XDG_DATA_HOME"/oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 # p10k TODO: Remove and use Dreams of Code alternative
-export ZDOTDIR="$HOME"/.config/zsh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ${ZDOTDIR:-~}/.p10k.zsh ]] || source ${ZDOTDIR:-~}/.p10k.zsh
 
@@ -180,7 +180,6 @@ if [ ! -d ~/.config/.oh-my-zsh/custom/themes/powerlevel10k ]; then
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.config/.oh-my-zsh/custom/themes/powerlevel10k
 fi
 
-# Config configuration
-mkdir -p ~/.config > /dev/null
-ln -s ~/dotfiles/.config/* ~/.config > /dev/null 2>&1
-zsh
+if [ ! -d ~/.local/state/zsh ]; then
+    mkdir ~/.local/state/zsh
+fi
