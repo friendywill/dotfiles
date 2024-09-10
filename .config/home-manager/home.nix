@@ -23,7 +23,6 @@ in
     pkgs.fzf
     pkgs.curl
     pkgs.git
-    pkgs.zsh
     pkgs.docker
     pkgs.wget
     pkgs.tmux
