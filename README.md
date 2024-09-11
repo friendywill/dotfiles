@@ -17,6 +17,7 @@ sh <(curl -L https://nixos.org/nix/install) --daemon
 
 3. Install docker (The daemon cannot be installed through the Nix package
 manager...).
+[Ubuntu | Docker Docs](https://docs.docker.com/engine/install/ubuntu/)
 
 4. Run Git setup, only for github,
 
