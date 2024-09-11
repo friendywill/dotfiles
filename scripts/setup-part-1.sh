@@ -1,1 +1,1 @@
-curl -L https://nixos.org/nix/install | sh -s -- --daemon
+sh <(curl -L https://nixos.org/nix/install) --daemon
