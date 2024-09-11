@@ -7,8 +7,7 @@ fi
 gh auth refresh -h github.com -s admin:gpg_key,user
 # Backup any previous git configuration
 # Make GNU pretty good privacy directory if it doesn't exist
-mkdir -p ~/.gnupg
-export GNUPGHOME="~/.gnupg"
+mkdir -p "$XDG_DATA_HOME"/gnupg
 github_username=$(gh api user --jq '.login')
 emails=$(gh api user/emails --jq '.[].email')
 

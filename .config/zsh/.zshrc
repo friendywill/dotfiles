@@ -1,6 +1,35 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
+
+# XDG Config
+export ZDOTDIR="$HOME"/.config/zsh
+# User-specific data files
+export XDG_DATA_HOME="$HOME/.local/share"
+
+# User-specific configuration files
+export XDG_CONFIG_HOME="$HOME/.config"
+
+# User-specific state files (e.g., session state, logs)
+export XDG_STATE_HOME="$HOME/.local/state"
+
+# User-specific cache files
+export XDG_CACHE_HOME="$HOME/.cache"
+
+# User-specific runtime files (e.g., sockets, temporary files)
+export XDG_RUNTIME_DIR="/run/user/$(id -u)"
+
+# ZSH
+export HISTFILE="$XDG_STATE_HOME"/zsh/history
+
+# GNU
+export GNUPGHOME="$XDG_DATA_HOME"/gnupg
+
+# Node Version Manager
+export NVM_DIR="$XDG_DATA_HOME"/nvm
+
+# ohmyzsh
+export ZSH="$XDG_DATA_HOME"/oh-my-zsh
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -8,8 +37,6 @@ fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
 
 export PATH="$PATH:/snap/bin:~/.local/bin"
 # Set name of the theme to load --- if set to "random", it will
@@ -80,7 +107,6 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
-source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -108,19 +134,40 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+#[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 alias lg=lazygit
 alias nv=nvim
-alias z="source ~/.zshrc"
+alias z="source $ZDOTDIR/.zshrc"
 alias lzd=lazydocker
 alias docker-compose="docker compose"
+alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
+source $ZSH/oh-my-zsh.sh
+# p10k TODO: Remove and use Dreams of Code alternative
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ${ZDOTDIR:-~}/.p10k.zsh ]] || source ${ZDOTDIR:-~}/.p10k.zsh
+
+# if [ -f ~/dotfiles/.config/home-shell.nix ]; then
+#   nix-shell ~/dotfiles/.config/home-shell.nix --pure
+# fi
+
+# Git and Zsh customizations
+if [ ! -d ~/.local/share/tmux/plugins/tpm ]; then
+    git clone https://github.com/tmux-plugins/tpm ~/.local/share/tmux/plugins/tpm
+fi
+
+if [ ! -d ~/.config/.oh-my-zsh/custom/themes/powerlevel10k ]; then
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.config/.oh-my-zsh/custom/themes/powerlevel10k
+fi
+
+if [ ! -d ~/.local/state/zsh ]; then
+    mkdir ~/.local/state/zsh
+fi
 
 if [ -e /home/wfriend/.nix-profile/etc/profile.d/nix.sh ]; then . /home/wfriend/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

@@ -9,17 +9,23 @@ personal configuration.
 
 1. Clone repo,
 
-2. Run script with the OS name on it,
+2. Run the nix installer, reload the terminal.
 
-3. Run Git setup, only for github,
+```bash
+sh <(curl -L https://nixos.org/nix/install) --daemon
+```
 
-4. Set default browser if applicable,
+3. Install docker (The daemon cannot be installed through the Nix package
+manager...).
+[Ubuntu | Docker Docs](https://docs.docker.com/engine/install/ubuntu/)
 
-5. Go into tmux, prefix + I,
+4. Run Git setup, only for github,
 
-6. Ensure a nerd font is used with whatever terminal you use [Nerd Fonts - Iconic font aggregator, glyphs/icons collection, & fonts patcher](https://www.nerdfonts.com/),
+5. Set default browser if applicable,
 
-7. Done!
+6. Go into tmux, prefix + I,
 
-TODO:
+7. Ensure a nerd font is used with whatever terminal you use [Nerd Fonts - Iconic font aggregator, glyphs/icons collection, & fonts patcher](https://www.nerdfonts.com/),
+
+8. Done!
 
