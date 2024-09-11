@@ -30,6 +30,7 @@ in
     pkgs.neovim
     pkgs.lazydocker
     pkgs.lazygit
+    pkgs.gcc
     pkgs.oh-my-zsh
     pkgs.fzf-zsh
     pkgs.zsh-autocomplete
