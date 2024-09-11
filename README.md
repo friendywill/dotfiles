@@ -9,7 +9,11 @@ personal configuration.
 
 1. Clone repo,
 
-2. Run script with the OS name on it,
+2. Run the nix installer, reload the terminal.
+
+```bash
+sh <(curl -L https://nixos.org/nix/install) --daemon
+```
 
 3. Run Git setup, only for github,
 
@@ -21,9 +25,3 @@ personal configuration.
 
 7. Done!
 
-### Nix
-
-1. To install Nix, follow
-[Download | Nix & NixOS](https://nixos.org/download/#nix-install-linux)
-or run nix.sh under scripts, ensure that systemd is enabled in WSL:
-[Advanced settings configuration in WSL | Microsoft Learn](https://learn.microsoft.com/en-us/windows/wsl/wsl-config#systemd-support)
