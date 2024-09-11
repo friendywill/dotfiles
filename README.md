@@ -15,13 +15,16 @@ personal configuration.
 sh <(curl -L https://nixos.org/nix/install) --daemon
 ```
 
-3. Run Git setup, only for github,
+3. Install docker (The daemon cannot be installed through the Nix package
+manager...).
 
-4. Set default browser if applicable,
+4. Run Git setup, only for github,
 
-5. Go into tmux, prefix + I,
+5. Set default browser if applicable,
 
-6. Ensure a nerd font is used with whatever terminal you use [Nerd Fonts - Iconic font aggregator, glyphs/icons collection, & fonts patcher](https://www.nerdfonts.com/),
+6. Go into tmux, prefix + I,
 
-7. Done!
+7. Ensure a nerd font is used with whatever terminal you use [Nerd Fonts - Iconic font aggregator, glyphs/icons collection, & fonts patcher](https://www.nerdfonts.com/),
+
+8. Done!
 
