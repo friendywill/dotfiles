@@ -38,7 +38,7 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 
-export PATH="$PATH:/snap/bin:~/.local/bin"
+export PATH="$PATH:/snap/bin:$HOME/.local/bin"
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
