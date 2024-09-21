@@ -171,3 +171,5 @@ if [ ! -d ~/.local/state/zsh ]; then
 fi
 
 if [ -e /home/wfriend/.nix-profile/etc/profile.d/nix.sh ]; then . /home/wfriend/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
