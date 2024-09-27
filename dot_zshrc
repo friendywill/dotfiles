@@ -3,7 +3,6 @@
 # confirmations, etc.) must go above this block; everything else may go below.
 
 # XDG Config
-export ZDOTDIR="$HOME"/.config/zsh
 # User-specific data files
 export XDG_DATA_HOME="$HOME/.local/share"
 
