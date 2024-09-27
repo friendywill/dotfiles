@@ -29,14 +29,16 @@ brew "zoxide"
 brew "arl/arl/gitmux"
 # A simple terminal UI for git commands, written in Go
 brew "jesseduffield/lazygit/lazygit"
-# A cross-platform multi-target dotfiles manager
-brew "michidk/tools/punktf"
-# A badass zsh theme with more power than a normal earthling
-brew "sambadevi/powerlevel9k/powerlevel9k"
 # Voice and text chat software
 cask "discord"
-cask "font-zed-mono-nerd-font"
+cask "font-hurmit-nerd-font"
 # Music streaming service
 cask "spotify"
-# Rust-based terminal
-cask "warp"
+
+brew "lazygit"
+brew "lazydocker"
+brew "wget"
+brew "curl"
+
+
+
