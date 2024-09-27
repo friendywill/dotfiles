@@ -27,8 +27,6 @@ brew "tmux"
 brew "zoxide"
 # Git in your tmux status bar.
 brew "arl/arl/gitmux"
-# A simple terminal UI for git commands, written in Go
-brew "jesseduffield/lazygit/lazygit"
 # Voice and text chat software
 cask "discord"
 cask "font-hurmit-nerd-font"
@@ -37,6 +35,7 @@ cask "spotify"
 
 brew "lazygit"
 brew "lazydocker"
+brew "zsh"
 brew "wget"
 brew "curl"
 
