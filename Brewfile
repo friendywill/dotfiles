@@ -36,6 +36,7 @@ cask "spotify"
 brew "lazygit"
 brew "lazydocker"
 brew "wget"
+brew "sshs"
 brew "curl"
 
 
