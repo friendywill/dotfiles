@@ -165,10 +165,5 @@ if [ ! -d ~/.config/.oh-my-zsh/custom/themes/powerlevel10k ]; then
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.config/.oh-my-zsh/custom/themes/powerlevel10k
 fi
 
-if [ ! -d ~/.local/state/zsh ]; then
-    mkdir ~/.local/state/zsh
-fi
-
-if [ -e /home/wfriend/.nix-profile/etc/profile.d/nix.sh ]; then . /home/wfriend/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
