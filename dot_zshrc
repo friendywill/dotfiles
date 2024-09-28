@@ -140,7 +140,9 @@ alias z="source $ZDOTDIR/.zshrc"
 alias lzd=lazydocker
 alias docker-compose="docker compose"
 alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
+alias cm=chezmoi
 
+EDITOR='nvim'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
