@@ -17,7 +17,7 @@ install_zsh() {
 # Detect package manager and install zsh accordingly
 if command -v apt >/dev/null 2>&1; then
     # For Debian/Ubuntu-based systems
-    install_zsh "apt" "sudo apt update && sudo apt install zsh -y"
+    install_zsh "apt" "sudo apt install zsh -y"
 elif command -v dnf >/dev/null 2>&1; then
     # For Fedora
     install_zsh "dnf" "sudo dnf install zsh -y"
