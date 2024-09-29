@@ -46,5 +46,8 @@ fi
 #install nvm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
 
+# Install devbox
+curl -fsSL https://get.jetify.com/devbox | bash
+
 chsh -s /bin/zsh
 zsh
