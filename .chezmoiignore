@@ -3,3 +3,4 @@ scripts/
 testing/
 run_onchange_submodules.sh
 Brewfile
+Brewfile.lock.json
