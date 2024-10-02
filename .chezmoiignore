@@ -4,3 +4,4 @@ testing/
 run_onchange_submodules.sh
 Brewfile
 Brewfile.lock.json
+.config/nvim/lazy-lock.json
