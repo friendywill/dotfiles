@@ -11,3 +11,4 @@
 .config/zsh/.zcompdump*
 .config/.oh-my-zsh
 Brewfile.lock.json
+.config/nvim/lazy-lock.json
