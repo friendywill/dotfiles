@@ -49,5 +49,8 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
 # Install devbox
 curl -fsSL https://get.jetify.com/devbox | bash
 
+# Install cargo (Rust)
+curl https://sh.rustup.rs -sSf | sh
+
 chsh -s /bin/zsh
 zsh
