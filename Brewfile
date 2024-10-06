@@ -38,6 +38,6 @@ brew "lazydocker"
 brew "wget"
 brew "sshs"
 brew "curl"
-
+brew "node"
 
 
