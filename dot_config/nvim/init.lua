@@ -107,6 +107,10 @@ vim.opt.relativenumber = true
 -- Trying out column highlight TODO: May remove column highlight
 vim.opt.cursorcolumn = true
 
+-- Soft limit of columns
+vim.opt.ruler = true
+vim.opt.colorcolumn = "80"
+
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = "a"
 
