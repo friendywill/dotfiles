@@ -143,7 +143,7 @@ plugins=(git)
 #[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 alias lg=lazygit
 alias nv=nvim
-alias z="source $ZDOTDIR/.zshrc"
+alias z="source ~/.zshrc"
 alias lzd=lazydocker
 alias docker-compose="docker compose"
 alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
