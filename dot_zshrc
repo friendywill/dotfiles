@@ -176,3 +176,5 @@ fi
 
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
