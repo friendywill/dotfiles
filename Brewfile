@@ -49,4 +49,4 @@ brew "openjdk"
 brew "julia"
 brew "ruby"
 brew "brew-gem"
-
+brew "pipx"
