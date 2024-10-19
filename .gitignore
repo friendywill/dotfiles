@@ -1,14 +1,1 @@
-.gitconfig
-.DS_Store
-.config/gh/hosts.yml
-.tmux/plugins/*
-.config/rclone/rclone.conf
-.config/nextjs-nodejs/config.json
-.config/bash/history
-.config/git/config
-.config/tmux/plugins
-.config/zsh/.zcompdump
-.config/zsh/.zcompdump*
-.config/.oh-my-zsh
 Brewfile.lock.json
-.config/nvim/lazy-lock.json
