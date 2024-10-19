@@ -18,6 +18,10 @@ export XDG_CACHE_HOME="$HOME/.cache"
 # User-specific runtime files (e.g., sockets, temporary files)
 export XDG_RUNTIME_DIR="/run/user/$(id -u)"
 
+# TMUX
+
+TERM="screen-256color"
+
 # ZSH
 if [ ! -d $XDG_STATE_HOME/zsh ]; then
   mkdir $XDG_STATE_HOME/zsh
