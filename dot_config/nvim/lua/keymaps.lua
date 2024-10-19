@@ -28,6 +28,23 @@ vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper win
 -- [[ LSP Keymaps ]] TODO: Add other LSP keymaps here.
 local lsp_keys = {}
 
+-- Toggleterm
+function lsp_keys.set_togterm_keys()
+  local opts = { buffer = 0 }
+  return {
+    vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>lua _lazygit_toggle()<CR>", { noremap = true, silent = true }),
+    vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], opts),
+    vim.keymap.set("t", "jk", [[<C-\><C-n>]], opts),
+    vim.keymap.set("t", "<C-h>", [[<Cmd>wincmd h<CR>]], opts),
+    vim.keymap.set("t", "<C-j>", [[<Cmd>wincmd j<CR>]], opts),
+    vim.keymap.set("t", "<C-k>", [[<Cmd>wincmd k<CR>]], opts),
+    vim.keymap.set("t", "<C-l>", [[<Cmd>wincmd l<CR>]], opts),
+    vim.keymap.set("t", "<C-w>", [[<C-\><C-n><C-w>]], opts),
+    vim.cmd("autocmd! TermOpen term://*toggleterm#*"),
+  }
+end
+
+-- Debug
 function lsp_keys.set_dap_keys(_, keys, dap, dapui)
   return {
     -- Basic debugging keymaps, feel free to change to your liking!
@@ -48,6 +65,7 @@ function lsp_keys.set_dap_keys(_, keys, dap, dapui)
   }
 end
 
+-- Git Signs
 function lsp_keys.set_git_sign_keys()
   return {
     on_attach = function(bufnr)
