@@ -148,6 +148,10 @@ alias lzd=lazydocker
 alias docker-compose="docker compose"
 alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
 alias cm=chezmoi
+if [ ! -d $XDG_CONFIG_HOME/subversion ]; then
+  mkdir $XDG_CONFIG_HOME/subversion
+fi
+alias svn="svn --config-dir $XDG_CONFIG_HOME/subversion"
 
 export EDITOR='nvim'
 
