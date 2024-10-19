@@ -15,7 +15,7 @@ vim.opt.number = true
 --  Experiment for yourself to see if you like it!
 vim.opt.relativenumber = true
 
--- Trying out column highlight TODO: May remove column highlight
+-- Trying out column highlight
 vim.opt.cursorcolumn = true
 
 -- Soft limit of columns
