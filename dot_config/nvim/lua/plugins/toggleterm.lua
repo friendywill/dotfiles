@@ -3,8 +3,6 @@ return {
     "akinsho/toggleterm.nvim",
     version = "*",
     config = function()
-      require("toggleterm").setup({})
-
       local Terminal = require("toggleterm.terminal").Terminal
       local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
       function _lazygit_toggle()
@@ -22,7 +20,4 @@ return {
       vim.cmd("autocmd! TermOpen term://*toggleterm#*")
     end,
   },
-  function()
-    return {}
-  end,
 }
