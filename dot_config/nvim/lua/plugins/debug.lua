@@ -5,6 +5,7 @@
 -- Primarily focused on configuring the debugger for Go, but can
 -- be extended to other languages as well. That's why it's called
 -- kickstart.nvim and not kitchen-sink.nvim ;)
+local keymaps = require("keymaps")
 
 return {
   -- NOTE: Yes, you can install new plugins here!
@@ -27,24 +28,7 @@ return {
   keys = function(_, keys)
     local dap = require("dap")
     local dapui = require("dapui")
-    return {
-      -- Basic debugging keymaps, feel free to change to your liking!
-      { "<leader>dc", dap.continue, desc = "Debug: Start/Continue" },
-      { "<leader>dsi", dap.step_into, desc = "Debug: Step Into" },
-      { "<leader>dso", dap.step_over, desc = "Debug: Step Over" },
-      { "<leader>dsu", dap.step_out, desc = "Debug: Step Out" },
-      { "<leader>db", dap.toggle_breakpoint, desc = "Debug: Toggle Breakpoint" },
-      {
-        "<leader>dB",
-        function()
-          dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
-        end,
-        desc = "Debug: Set Breakpoint",
-      },
-      -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
-      { "<F7>", dapui.toggle, desc = "Debug: See last session result." },
-      unpack(keys),
-    }
+    return keymaps.set_dap_keys(_, keys, dap, dapui)
   end,
   config = function()
     local dap = require("dap")
