@@ -43,7 +43,6 @@ function lsp_keys.set_dap_keys(_, keys, dap, dapui)
       end,
       desc = "Debug: Set Breakpoint",
     },
-    print("test"),
     { "<F7>", dapui.toggle, desc = "Debug: See last session result." },
     unpack(keys),
   }
