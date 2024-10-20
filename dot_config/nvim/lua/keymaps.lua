@@ -1,3 +1,6 @@
+-- TODO: Decide on a way to clean this code, where that be through
+-- a map, or unpacking of keys.
+--
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
