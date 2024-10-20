@@ -1,3 +1,4 @@
+local keymaps = require("keymaps")
 -- Neo-tree is a Neovim plugin to browse the file system
 -- https://github.com/nvim-neo-tree/neo-tree.nvim
 
@@ -10,17 +11,11 @@ return {
     "MunifTanjim/nui.nvim",
   },
   cmd = "Neotree",
-  keys = {
-    { "\\", ":Neotree reveal<CR>", desc = "NeoTree reveal", silent = true },
-    { "<leader>e", ":Neotree reveal<CR>", desc = "NeoTree reveal", silent = true },
-  },
+  keys = keymaps.set_neotree_keys(),
   opts = {
     filesystem = {
       window = {
-        mappings = {
-          ["<leader>e"] = "close_window",
-          ["\\"] = "close_window",
-        },
+        mappings = keymaps.set_neotree_keys_other(),
       },
     },
   },

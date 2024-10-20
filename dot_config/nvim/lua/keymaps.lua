@@ -28,8 +28,25 @@ vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right win
 vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
+-- docker
+-- vim.keymap.set("n", "<leader>do", "<Cmd>term lazydocker", { desc = "Lazydocker" })
+
 -- [[ Plugin Keymaps ]] TODO: Add other plugin keymaps here.
 local plugin_keys = {}
+
+function plugin_keys.set_neotree_keys()
+  return {
+    { "\\", ":Neotree reveal<CR>", desc = "NeoTree reveal", silent = true },
+    { "<leader>e", ":Neotree reveal<CR>", desc = "NeoTree reveal", silent = true },
+  }
+end
+
+function plugin_keys.set_neotree_keys_other()
+  return {
+    ["<leader>e"] = "close_window",
+    ["\\"] = "close_window",
+  }
+end
 
 function plugin_keys.set_which_keys()
   return {
@@ -45,16 +62,16 @@ end
 
 -- Toggleterm
 function plugin_keys.set_togterm_keys()
-  local opts = { buffer = 0 }
   return {
     vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>lua _lazygit_toggle()<CR>", { noremap = true, silent = true }),
-    vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], opts),
-    vim.keymap.set("t", "jk", [[<C-\><C-n>]], opts),
-    vim.keymap.set("t", "<C-h>", [[<Cmd>wincmd h<CR>]], opts),
-    vim.keymap.set("t", "<C-j>", [[<Cmd>wincmd j<CR>]], opts),
-    vim.keymap.set("t", "<C-k>", [[<Cmd>wincmd k<CR>]], opts),
-    vim.keymap.set("t", "<C-l>", [[<Cmd>wincmd l<CR>]], opts),
-    vim.keymap.set("t", "<C-w>", [[<C-\><C-n><C-w>]], opts),
+    vim.api.nvim_set_keymap("n", "<leader>do", "<cmd>lua _lazydocker_toggle()<CR>", { noremap = true, silent = true }),
+    vim.api.nvim_set_keymap("t", "<esc>", [[<C-\><C-n>]], {}),
+    vim.api.nvim_set_keymap("t", "jk", [[<C-\><C-n>]], {}),
+    vim.api.nvim_set_keymap("t", "<C-h>", [[<Cmd>wincmd h<CR>]], {}),
+    vim.api.nvim_set_keymap("t", "<C-j>", [[<Cmd>wincmd j<CR>]], {}),
+    vim.api.nvim_set_keymap("t", "<C-k>", [[<Cmd>wincmd k<CR>]], {}),
+    vim.api.nvim_set_keymap("t", "<C-l>", [[<Cmd>wincmd l<CR>]], {}),
+    vim.api.nvim_set_keymap("t", "<C-w>", [[<C-\><C-n><C-w>]], {}),
     vim.cmd("autocmd! TermOpen term://*toggleterm#*"),
   }
 end
