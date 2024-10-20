@@ -126,10 +126,7 @@ function plugin_keys.set_git_sign_keys(map, gitsigns)
   }
 end
 
-return plugin_keys
-
 -- [[ LSP Keymaps ]]
-local lsp_keys = {}
 
 function plugin_keys.lsp_keys(map, client, event)
   -- Jump to the definition of the word under your cursor.
