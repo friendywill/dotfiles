@@ -6,8 +6,8 @@ return {
     version = "*",
     config = function()
       local FloatingTerminal = require("toggleterm.terminal").Terminal
-      local lazygit = FloatingTerminal:new({ cmd = "lazygit", hidden = true })
-      local lazydocker = FloatingTerminal:new({ cmd = "lazydocker", hidden = true })
+      local lazygit = FloatingTerminal:new({ cmd = "lazygit", hidden = true, direction = "float" })
+      local lazydocker = FloatingTerminal:new({ cmd = "lazydocker", hidden = true, direction = "float" })
       function _lazygit_toggle()
         lazygit:toggle()
       end
