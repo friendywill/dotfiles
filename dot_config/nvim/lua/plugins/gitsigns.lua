@@ -8,6 +8,13 @@ return {
   {
     "lewis6991/gitsigns.nvim",
     opts = {
+      signs = {
+        add = { text = "+" },
+        change = { text = "~" },
+        delete = { text = "_" },
+        topdelete = { text = "‾" },
+        changedelete = { text = "~" },
+      },
       on_attach = function(bufnr)
         local gitsigns = require("gitsigns")
 
@@ -18,13 +25,6 @@ return {
         end
         keymaps.set_git_sign_keys(map, gitsigns)
       end,
-      signs = {
-        add = { text = "+" },
-        change = { text = "~" },
-        delete = { text = "_" },
-        topdelete = { text = "‾" },
-        changedelete = { text = "~" },
-      },
     },
   },
 }
