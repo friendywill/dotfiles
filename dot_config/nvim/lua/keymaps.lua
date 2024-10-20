@@ -28,11 +28,11 @@ vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right win
 vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
--- [[ LSP Keymaps ]] TODO: Add other LSP keymaps here.
-local lsp_keys = {}
+-- [[ Plugin Keymaps ]] TODO: Add other plugin keymaps here.
+local plugin_keys = {}
 
 -- Toggleterm
-function lsp_keys.set_togterm_keys()
+function plugin_keys.set_togterm_keys()
   local opts = { buffer = 0 }
   return {
     vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>lua _lazygit_toggle()<CR>", { noremap = true, silent = true }),
@@ -48,7 +48,7 @@ function lsp_keys.set_togterm_keys()
 end
 
 -- Debug
-function lsp_keys.set_dap_keys(_, keys, dap, dapui)
+function plugin_keys.set_dap_keys(_, keys, dap, dapui)
   return {
     -- Basic debugging keymaps, feel free to change to your liking!
     { "<leader>Dc", dap.continue, desc = "Debug: Start/Continue" },
@@ -69,7 +69,7 @@ function lsp_keys.set_dap_keys(_, keys, dap, dapui)
 end
 
 -- Git Signs
-function lsp_keys.set_git_sign_keys(map, gitsigns)
+function plugin_keys.set_git_sign_keys(map, gitsigns)
   return {
     -- Navigation
     map("n", "]c", function()
