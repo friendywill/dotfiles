@@ -28,6 +28,8 @@ vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right win
 vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
+-- vim.keymap.set("v", ">", "<Cmd>norm gv<CR>")
+
 -- docker
 -- vim.keymap.set("n", "<leader>do", "<Cmd>term lazydocker", { desc = "Lazydocker" })
 
@@ -52,11 +54,26 @@ function plugin_keys.set_which_keys()
   return {
     { "<leader>c", group = "[C]ode", mode = { "n", "x" } },
     { "<leader>d", group = "[D]ocument" },
+    { "<leader>l", group = "[L]azy" },
     { "<leader>r", group = "[R]ename" },
     { "<leader>s", group = "[S]earch" },
     { "<leader>w", group = "[W]orkspace" },
     { "<leader>t", group = "[T]oggle" },
     { "<leader>h", group = "Git [H]unk", mode = { "n", "v" } },
+  }
+end
+
+-- autoformat
+function plugin_keys.set_af_keys()
+  return {
+    {
+      "<leader>f",
+      function()
+        require("conform").format({ async = true, lsp_format = "fallback" })
+      end,
+      mode = "",
+      desc = "[F]ormat buffer",
+    },
   }
 end
 
