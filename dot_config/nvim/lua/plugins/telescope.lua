@@ -56,6 +56,9 @@ return {
         -- },
         -- pickers = {}
         extensions = {
+          ["yaml_schema"] = {
+            require("telescope").load_extension("yaml_schema")
+          },
           ["ui-select"] = {
             require("telescope.themes").get_dropdown(),
           },
