@@ -81,6 +81,9 @@ return {
           },
         },
       },
+      grammarly = {},
+      markdownlint = {},
+      marksman = {},
       lua_ls = {
         -- cmd = {...},
         -- filetypes = { ...},
@@ -127,7 +130,6 @@ return {
             },
           },
         },
-        settings = {},
       },
     }
 
