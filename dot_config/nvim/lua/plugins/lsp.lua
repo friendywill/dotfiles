@@ -3,6 +3,7 @@ local autocmds = require("autocmds")
 return {
   -- Main LSP Configuration
   "neovim/nvim-lspconfig",
+  version = "v1.0.0",
   dependencies = {
     -- Automatically install LSPs and related tools to stdpath for Neovim
     { "williamboman/mason.nvim", config = true }, -- NOTE: Must be loaded before dependants
@@ -16,7 +17,7 @@ return {
     -- Allows extra capabilities provided by nvim-cmp
     "hrsh7th/cmp-nvim-lsp",
   },
-  config = function()
+  config = function(_, bufnr)
     vim.api.nvim_create_autocmd("LspAttach", {
       group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
       callback = function(event)
@@ -69,7 +70,17 @@ return {
       -- But for many setups, the LSP (`ts_ls`) will work just fine
       -- ts_ls = {},
       --
-
+      -- pyright = {
+      --
+      -- },
+      basedpyright = {
+        basedpyright = {
+          analysis = {
+            typeCheckingMode = "strict",
+            useLibraryCodeForTypes = true,
+          },
+        },
+      },
       lua_ls = {
         -- cmd = {...},
         -- filetypes = { ...},
@@ -116,6 +127,7 @@ return {
             },
           },
         },
+        settings = {},
       },
     }
 
