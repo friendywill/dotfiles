@@ -81,7 +81,6 @@ return {
           },
         },
       },
-      grammarly = {},
       markdownlint = {},
       marksman = {},
       lua_ls = {
