@@ -53,7 +53,10 @@ end
 function plugin_keys.set_which_keys()
   return {
     { "<leader>c", group = "[C]ode", mode = { "n", "x" } },
-    { "<leader>d", group = "[D]ocument" },
+    { "<leader>d", group = "[d]ocument" },
+    { "<leader>D", group = "[D]ebug" },
+    { "<leader>g", group = "[G]oto" },
+    { "<leader>hi", group = "Commit Options" },
     { "<leader>l", group = "[L]azy" },
     { "<leader>r", group = "[R]ename" },
     { "<leader>s", group = "[S]earch" },
