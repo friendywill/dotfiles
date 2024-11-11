@@ -142,6 +142,16 @@ function plugin_keys.set_git_sign_keys(map, gitsigns)
     map("v", "<leader>hr", function()
       gitsigns.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
     end, { desc = "reset git hunk" }),
+    map("v", "<leader>hij", function()
+      -- Stage the selected hunk
+      gitsigns.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
+      -- Save unstaged changes to a stash
+      vim.cmd("Git stash --keep-index")
+      -- Commit the staged hunk
+      vim.cmd({ cmd = "Git", args = { "commit" } })
+      -- Apply the stash to restage the previous changes
+      vim.cmd("Git stash pop")
+    end, { desc = "commit just selected hunk" }),
     map("v", "<leader>hic", function()
       gitsigns.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
       vim.cmd({ cmd = "Git", args = { "commit" } })
