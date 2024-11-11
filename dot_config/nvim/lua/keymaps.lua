@@ -80,7 +80,7 @@ end
 -- Toggleterm
 function plugin_keys.set_togterm_keys()
   return {
-    vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>lua _lazygit_toggle()<CR>", { noremap = true, silent = true }),
+    -- vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>lua _lazygit_toggle()<CR>", { noremap = true, silent = true }),
     vim.api.nvim_set_keymap("n", "<leader>do", "<cmd>lua _lazydocker_toggle()<CR>", { noremap = true, silent = true }),
     vim.api.nvim_set_keymap("t", "<esc>", [[<C-\><C-n>]], {}),
     vim.api.nvim_set_keymap("t", "jk", [[<C-\><C-n>]], {}),
