@@ -142,6 +142,10 @@ function plugin_keys.set_git_sign_keys(map, gitsigns)
     map("v", "<leader>hr", function()
       gitsigns.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
     end, { desc = "reset git hunk" }),
+    map("v", "<leader>hic", function()
+      gitsigns.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
+      vim.cmd({ cmd = "Git", args = { "commit" } })
+    end, { desc = "commit selected hunk" }),
     -- normal mode
     map("n", "<leader>hs", gitsigns.stage_hunk, { desc = "git [s]tage hunk" }),
     map("n", "<leader>hr", gitsigns.reset_hunk, { desc = "git [r]eset hunk" }),
