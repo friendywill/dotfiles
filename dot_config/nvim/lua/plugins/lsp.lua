@@ -81,6 +81,7 @@ return {
           },
         },
       },
+      isort = {},
       markdownlint = {},
       marksman = {},
       lua_ls = {
