@@ -73,6 +73,7 @@ return {
       -- pyright = {
       --
       -- },
+      debugpy = {},
       pylsp = {},
       basedpyright = {
         basedpyright = {
