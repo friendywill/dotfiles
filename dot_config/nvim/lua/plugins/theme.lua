@@ -8,6 +8,18 @@ return {
     config = function()
       require("catppuccin").setup({
         flavour = "mocha",
+        color_overrides = {
+          mocha = {
+            overlay1 = "#5475ab",
+          },
+        },
+        highlight_overrides = {
+        mocha = function(mocha)
+            return {
+                 LineNr = { fg = mocha.overlay1 },
+            }
+        end,
+        },
         styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
           comments = { "italic" }, -- Change the style of comments
           conditionals = { "italic" },
