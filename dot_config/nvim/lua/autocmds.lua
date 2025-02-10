@@ -12,6 +12,26 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
+-- If the windows clipboard is available, also copy the yanked text
+local function copy_to_clipboard()
+  -- Get the yanked text from the unnamed register
+  local yanked_text = vim.fn.getreg('"')
+
+  -- Check if clip.exe exists (only for Windows)
+  local clip_exists = vim.fn.executable("clip.exe") == 1
+
+  if clip_exists then
+    -- If clip.exe exists, copy the yanked text to the clipboard
+    local handle = io.popen("clip.exe", "w")
+    handle:write(yanked_text)
+    handle:close()
+  end
+end
+
+-- Create an autocommand that triggers when text is yanked
+vim.api.nvim_create_autocmd("TextYankPost", {
+  callback = copy_to_clipboard,
+})
 -- [[ Plugin Autocommands ]]
 
 local autocmds = {}
