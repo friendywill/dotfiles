@@ -2,8 +2,6 @@
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 #
-# Kubectl autocomplete
-source <(kubectl completion zsh)
 
 # XDG Config
 # User-specific data files
@@ -340,3 +338,6 @@ fi
 eval "$(zoxide init zsh)"
 
 export VENV_DIR=$XDG_DATA_HOME/venv/
+
+# Kubectl autocomplete
+source <(kubectl completion zsh)
