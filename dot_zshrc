@@ -352,3 +352,7 @@ case ":$PATH:" in
 esac
 # pnpm end
 . "/home/friendywill/.deno/env"
+# Deno Autocomplete
+fpath=(~/.zsh $fpath)
+autoload -Uz compinit
+compinit -u
