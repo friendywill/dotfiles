@@ -222,6 +222,10 @@ function plugin_keys.lsp_keys(map, client, event)
       vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
     end, "[T]oggle Inlay [H]ints")
   end
+  -- Toggle Diagnostics
+  map("<leader>td", function()
+    vim.diagnostic.enable(not vim.diagnostic.is_enabled({ bufnr = event.buf }))
+  end, "[T]oggle [D]iagnostics")
 end
 
 return plugin_keys
