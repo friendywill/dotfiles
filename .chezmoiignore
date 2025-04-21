@@ -1,7 +1,16 @@
+# Base Ignores
 README.md
 scripts/
 testing/
 run_onchange_submodules.sh
 Brewfile
 Brewfile.lock.json
-.config/nvim/lazy-lock.json
+./LICENSE.md
+
+{{ if eq .chezmoi.os "windows" }}
+./dot_zshrc
+./dot_p10k.zsh
+./dot_config
+{{ else }}
+./AppData
+{{ end }}

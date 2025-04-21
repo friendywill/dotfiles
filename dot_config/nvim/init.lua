@@ -1,2 +1,4 @@
-vim.g.have_nerd_font = TRUE
-require("config.lazy")
+require("keymaps")
+require("options")
+require("autocmds")
+require("lazy-config")

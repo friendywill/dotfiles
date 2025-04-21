@@ -1,6 +1,9 @@
+# Add deno completions to search path
+if [[ ":$FPATH:" != *":/home/friendywill/.zsh/completions:"* ]]; then export FPATH="/home/friendywill/.zsh/completions:$FPATH"; fi
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
+#
 
 # XDG Config
 # User-specific data files
@@ -17,6 +20,10 @@ export XDG_CACHE_HOME="$HOME/.cache"
 
 # User-specific runtime files (e.g., sockets, temporary files)
 export XDG_RUNTIME_DIR="/run/user/$(id -u)"
+
+# TMUX
+
+TERM="screen-256color"
 
 # ZSH
 if [ ! -d $XDG_STATE_HOME/zsh ]; then
@@ -79,7 +86,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
@@ -148,12 +155,22 @@ alias lzd=lazydocker
 alias docker-compose="docker compose"
 alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
 alias cm=chezmoi
+if [ ! -d $XDG_CONFIG_HOME/subversion ]; then
+  mkdir $XDG_CONFIG_HOME/subversion
+fi
+alias svn="svn --config-dir $XDG_CONFIG_HOME/subversion"
 
 export EDITOR='nvim'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+if [ ! -d $XDG_CACHE_HOME/zsh ]; then
+  mkdir $XDG_CACHE_HOME/zsh
+fi
+compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
+
 
 
 source $ZSH/oh-my-zsh.sh
@@ -174,7 +191,9 @@ if [ ! -d ~/.config/.oh-my-zsh/custom/themes/powerlevel10k ]; then
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.config/.oh-my-zsh/custom/themes/powerlevel10k
 fi
 
-
+if [ ! -d ~/.local/share/autocomplete ]; then
+    git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git ~/.local/share/autocomplete
+fi
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
@@ -320,5 +339,23 @@ fi
 #
 # To initialize zoxide, add this to your configuration (usually ~/.zshrc):
 #
-# eval "$(zoxide init zsh)"
+eval "$(zoxide init zsh)"
 
+export VENV_DIR=$XDG_DATA_HOME/venv/
+
+# Kubectl autocomplete
+if command -v kubectl &>/dev/null; then source <(kubectl completion zsh); fi
+
+# pnpm
+export PNPM_HOME="/home/friendywill/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+if [ -d /home/friendywill/.deno/env ]; then
+    . "/home/friendywill/.deno/env"
+    fpath=(~/.zsh $fpath)
+fi
+
+source ~/.local/share/autocomplete
