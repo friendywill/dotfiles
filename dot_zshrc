@@ -344,7 +344,7 @@ eval "$(zoxide init zsh)"
 export VENV_DIR=$XDG_DATA_HOME/venv/
 
 # Kubectl autocomplete
-source <(kubectl completion zsh)
+if command -v kubectl &>/dev/null; then source <(kubectl completion zsh); fi
 
 # pnpm
 export PNPM_HOME="/home/friendywill/.local/share/pnpm"
@@ -353,8 +353,9 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
-. "/home/friendywill/.deno/env"
-# Deno Autocomplete
-fpath=(~/.zsh $fpath)
+if [ -d /home/friendywill/.deno/env ]; then
+    . "/home/friendywill/.deno/env"
+    fpath=(~/.zsh $fpath)
+fi
 
 source ~/.local/share/autocomplete
