@@ -347,14 +347,14 @@ export VENV_DIR=$XDG_DATA_HOME/venv/
 if command -v kubectl &>/dev/null; then source <(kubectl completion zsh); fi
 
 # pnpm
-export PNPM_HOME="/home/friendywill/.local/share/pnpm"
+export PNPM_HOME="~/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
-if [ -d /home/friendywill/.deno/env ]; then
-    . "/home/friendywill/.deno/env"
+if [ -d ~/.deno/env ]; then
+    . "~/.deno/env"
     fpath=(~/.zsh $fpath)
 fi
 
