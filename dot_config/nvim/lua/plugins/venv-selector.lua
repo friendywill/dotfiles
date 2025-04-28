@@ -13,7 +13,7 @@ return {
       settings = {
         search = {
           miniforge = {
-            command = "fd python$ ~/.local/share/miniforge3/envs/crm-email/",
+            command = "fd python$ ~/.local/share/miniforge3/envs/",
           },
           local_venvs = {
             command = "fd python$ ~/.local/share/venv/",
