@@ -358,4 +358,8 @@ if [ -d ~/.deno/env ]; then
     fpath=(~/.zsh $fpath)
 fi
 
+if [ ~/.local/share/miniforge3/bin/activate ]; then
+    source ~/.local/share/miniforge3/bin/activate
+fi
+
 source ~/.local/share/autocomplete
