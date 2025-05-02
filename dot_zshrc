@@ -358,7 +358,7 @@ if [ -d ~/.deno/env ]; then
     fpath=(~/.zsh $fpath)
 fi
 
-if [ ~/.local/share/miniforge3/bin/activate ]; then
+if [ -d ~/.local/share/miniforge3/bin ]; then
     source ~/.local/share/miniforge3/bin/activate
 fi
 
