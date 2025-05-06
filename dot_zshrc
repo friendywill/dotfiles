@@ -194,6 +194,10 @@ fi
 if [ ! -d ~/.local/share/autocomplete ]; then
     git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git ~/.local/share/autocomplete
 fi
+if [ ! -d $ZSH_CUSTOM/plugins/poetry ] && command -v poetry > /dev/null; then
+    mkdir -p $ZSH_CUSTOM/plugins/poetry
+    poetry completions zsh > $ZSH_CUSTOM/plugins/poetry/_poetry
+fi
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
