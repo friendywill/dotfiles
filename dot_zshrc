@@ -367,3 +367,4 @@ if [ -d ~/.local/share/miniforge3/bin ]; then
 fi
 
 source ~/.local/share/autocomplete
+export PATH="/home/wfriend/.pixi/bin:$PATH"
