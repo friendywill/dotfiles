@@ -3,11 +3,11 @@ local autocmds = require("autocmds")
 return {
   -- Main LSP Configuration
   "neovim/nvim-lspconfig",
-  version = "v1.0.0",
   dependencies = {
     -- Automatically install LSPs and related tools to stdpath for Neovim
-    { "williamboman/mason.nvim", config = true }, -- NOTE: Must be loaded before dependants
-    "williamboman/mason-lspconfig.nvim",
+    -- Mason must be loaded before its dependents so we need to set it up here.
+    { "mason-org/mason.nvim", opts = {} },
+    "mason-org/mason-lspconfig.nvim",
     "WhoIsSethDaniel/mason-tool-installer.nvim",
 
     -- Useful status updates for LSP.
@@ -74,7 +74,6 @@ return {
       --
       -- },
       debugpy = {},
-      pylsp = {},
       basedpyright = {
         basedpyright = {
           analysis = {
@@ -100,16 +99,17 @@ return {
           },
         },
       },
-        ts_ls = {
-            root_dir = require("lspconfig").util.root_pattern({ "package.json", "tsconfig.json" }),
-            single_file_support = false,
-            settings = {},
-        },
-        denols = {
-            root_dir = require("lspconfig").util.root_pattern({"deno.json", "deno.jsonc"}),
-            single_file_support = false,
-            settings = {},
-        },
+      autopep = {},
+      ts_ls = {
+        root_dir = require("lspconfig").util.root_pattern({ "package.json", "tsconfig.json" }),
+        single_file_support = false,
+        settings = {},
+      },
+      denols = {
+        root_dir = require("lspconfig").util.root_pattern({ "deno.json", "deno.jsonc" }),
+        single_file_support = false,
+        settings = {},
+      },
       yamlls = {
         -- Have to add this for yamlls to understand that we support line folding
         capabilities = {
@@ -151,7 +151,7 @@ return {
     --    :Mason
     --
     --  You can press `g?` for help in this menu.
-    require("mason").setup()
+    -- require("mason").setup()
 
     -- You can add other tools here that you want Mason to install
     -- for you, so that they are available from within Neovim.
@@ -162,6 +162,8 @@ return {
     require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
     require("mason-lspconfig").setup({
+      ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
+      automatic_installation = true,
       handlers = {
         function(server_name)
           local server = servers[server_name] or {}
