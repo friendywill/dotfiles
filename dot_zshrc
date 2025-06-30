@@ -27,7 +27,7 @@ TERM="screen-256color"
 
 # ZSH
 if [ ! -d $XDG_STATE_HOME/zsh ]; then
-  mkdir $XDG_STATE_HOME/zsh
+  mkdir -p $XDG_STATE_HOME/zsh
 fi
 
 export HISTFILE="$XDG_STATE_HOME"/zsh/history
@@ -156,7 +156,7 @@ alias docker-compose="docker compose"
 alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
 alias cm=chezmoi
 if [ ! -d $XDG_CONFIG_HOME/subversion ]; then
-  mkdir $XDG_CONFIG_HOME/subversion
+  mkdir -p $XDG_CONFIG_HOME/subversion
 fi
 alias svn="svn --config-dir $XDG_CONFIG_HOME/subversion"
 
@@ -167,7 +167,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 if [ ! -d $XDG_CACHE_HOME/zsh ]; then
-  mkdir $XDG_CACHE_HOME/zsh
+  mkdir -p $XDG_CACHE_HOME/zsh
 fi
 compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
 
