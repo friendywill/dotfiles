@@ -1,6 +1,7 @@
 tap "azure/kubelogin"
 tap "jesseduffield/lazygit"
 tap "michidk/tools"
+brew "basedpyright"
 brew "ruby"
 brew "brew-gem"
 brew "cargo-about"
