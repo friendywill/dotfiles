@@ -1,5 +1,5 @@
 # Add deno completions to search path
-if [[ ":$FPATH:" != *":/home/friendywill/.zsh/completions:"* ]]; then export FPATH="/home/friendywill/.zsh/completions:$FPATH"; fi
+if [[ ":$FPATH:" != *":$HOME/.zsh/completions:"* ]]; then export FPATH="$HOME/zsh/completions:$FPATH"; fi
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -42,13 +42,18 @@ export NVM_DIR="$XDG_DATA_HOME"/nvm
 export ZSH="$XDG_DATA_HOME"/oh-my-zsh
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
 
 # Rust binaries
-export PATH=$HOME/.cargo/bin:$PATH
+if [[ ! -d "=$HOME/.cargo/bin/" ]]; then
+    export PATH=$HOME/.cargo/bin:$PATH
+fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+#
+
+# Add wasner to path
+
 
 
 export PATH="$PATH:/snap/bin:$HOME/.local/bin"
@@ -368,3 +373,8 @@ fi
 
 source ~/.local/share/autocomplete
 export PATH="/home/wfriend/.pixi/bin:$PATH"
+
+# Wasmer
+export WASMER_DIR="~/.wasmer"
+[ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"
+fi
