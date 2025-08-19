@@ -40,13 +40,12 @@ export NVM_DIR="$XDG_DATA_HOME"/nvm
 
 # ohmyzsh
 export ZSH="$XDG_DATA_HOME"/oh-my-zsh
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+#if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  #source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 
 # Rust binaries
 if [[ ! -d "=$HOME/.cargo/bin/" ]]; then
     export PATH=$HOME/.cargo/bin:$PATH
-fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -205,7 +204,7 @@ if [ ! -d $ZSH_CUSTOM/plugins/poetry ] && command -v poetry > /dev/null; then
 fi
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+#export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
