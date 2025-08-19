@@ -168,6 +168,7 @@ function plugin_keys.set_git_sign_keys(map, gitsigns)
     map("n", "<leader>hp", gitsigns.preview_hunk, { desc = "git [p]review hunk" }),
     map("n", "<leader>hb", gitsigns.blame_line, { desc = "git [b]lame line" }),
     map("n", "<leader>hd", gitsigns.diffthis, { desc = "git [d]iff against index" }),
+    map("n", "<leader>hc", "<Cmd> Git commit<CR>", { desc = "git [c]ommit" }),
     map("n", "<leader>hm", "<Cmd> terminal chezmoi apply<CR>", { desc = "C[h]ez[m]oi apply" }),
     map("n", "<leader>hD", function()
       gitsigns.diffthis("@")
