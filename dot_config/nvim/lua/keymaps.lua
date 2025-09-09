@@ -84,7 +84,12 @@ end
 function plugin_keys.set_togterm_keys()
   return {
     -- vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>lua _lazygit_toggle()<CR>", { noremap = true, silent = true }),
-    vim.api.nvim_set_keymap("n", "<leader>do", [[<Cmd>lua _lazydocker_toggle()<CR>]], { noremap = true, silent = true }),
+    vim.api.nvim_set_keymap(
+      "n",
+      "<leader>do",
+      [[<Cmd>lua _lazydocker_toggle()<CR>]],
+      { noremap = true, silent = true }
+    ),
     vim.api.nvim_set_keymap("t", "<esc>", [[<C-\><C-n>]], {}),
     vim.api.nvim_set_keymap("t", "jk", [[<C-\><C-n>]], {}),
     vim.api.nvim_set_keymap("t", "<C-h>", [[<Cmd>wincmd h<CR>]], {}),
@@ -219,7 +224,6 @@ function plugin_keys.lsp_keys(map, client, event)
     map("<leader>co", "<CMD>PyrightOrganizeImports<CR>", "[C]ode [O]rganise imports", "n")
   end
 
-
   -- WARN: This is not Goto Definition, this is Goto Declaration.
   --  For example, in C this would take you to the header.
   map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
@@ -232,6 +236,45 @@ function plugin_keys.lsp_keys(map, client, event)
   map("<leader>td", function()
     vim.diagnostic.enable(not vim.diagnostic.is_enabled({ bufnr = event.buf }))
   end, "[T]oggle [D]iagnostics")
+  local warnings_hidden = false
+  map("<leader>tw", function()
+    warnings_hidden = not warnings_hidden
+    if warnings_hidden then
+      vim.diagnostic.config({
+        severity_sort = true,
+        virtual_text = {
+          severity = { min = vim.diagnostic.severity.ERROR },
+        },
+        signs = {
+          severity = { min = vim.diagnostic.severity.ERROR },
+        },
+        underline = {
+          severity = { min = vim.diagnostic.severity.ERROR },
+        },
+        jump = {
+          severity = { min = vim.diagnostic.severity.ERROR },
+        },
+      })
+      vim.notify("Warnings hidden", vim.log.levels.INFO)
+    else
+      vim.diagnostic.config({
+        severity_sort = true,
+        virtual_text = {
+          severity = { min = vim.diagnostic.severity.HINT },
+        },
+        signs = {
+          severity = { min = vim.diagnostic.severity.HINT },
+        },
+        underline = {
+          severity = { min = vim.diagnostic.severity.HINT },
+        },
+        jump = {
+          severity = { min = vim.diagnostic.severity.HINT },
+        },
+      })
+      vim.notify("Warnings shown", vim.log.levels.INFO)
+    end
+  end, "[T]oggle [W]arnings")
 end
 
 return plugin_keys
