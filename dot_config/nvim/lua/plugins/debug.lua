@@ -135,5 +135,22 @@ return {
         timeout = 2000,
       },
     }
+    dap.configurations.python = {
+      {
+        justMyCode = false,
+        type = "python",
+        request = "launch",
+        name = "launch file",
+        program = "${file}",
+        args = get_args,
+        pythonPath = function()
+          local venv_path = os.getenv("VIRTUAL_ENV")
+          if venv_path then
+            return venv_path .. "/bin/python"
+          end
+          return "/usr/bin/python3"
+        end,
+      },
+    }
   end,
 }
