@@ -19,9 +19,9 @@ return { -- Autocompletion
         --    See the README about individual language/framework/plugin snippets:
         --    https://github.com/rafamadriz/friendly-snippets
         {
-          "rafamadriz/friendly-snippets",
+          "friendywill/friendly-snippets",
           config = function()
-            require("luasnip.loaders.from_vscode").lazy_load()
+            require("luasnip.loaders.from_vscode").lazy_load({ paths = (vim.fn.stdpath("config") .. "/lua/snip") })
           end,
         },
       },
