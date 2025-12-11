@@ -74,6 +74,7 @@ return {
       -- pyright = {
       --
       -- },
+      jq = {},
       basedpyright = {
         basedpyright = {
           analysis = {
