@@ -1,0 +1,267 @@
+{
+	"$schema": "https://aka.ms/winget-packages.schema.2.0.json",
+	"CreationDate": "2026-02-05T06:22:48.451-00:00",
+	"Sources": [
+		{
+			"Packages": [
+				{
+					"PackageIdentifier": "CoreyButler.NVMforWindows"
+				},
+				{
+					"PackageIdentifier": "7zip.7zip"
+				},
+				{
+					"PackageIdentifier": "Mozilla.Firefox.DeveloperEdition"
+				},
+				{
+					"PackageIdentifier": "Git.Git"
+				},
+				{
+					"PackageIdentifier": "GnuPG.GnuPG"
+				},
+				{
+					"PackageIdentifier": "Notepad++.Notepad++"
+				},
+				{
+					"PackageIdentifier": "winaero.tweaker"
+				},
+				{
+					"PackageIdentifier": "Zen-Team.Zen-Browser"
+				},
+				{
+					"PackageIdentifier": "restic.restic"
+				},
+				{
+					"PackageIdentifier": "Microsoft.VCRedist.2010.x64"
+				},
+				{
+					"PackageIdentifier": "GitHub.cli"
+				},
+				{
+					"PackageIdentifier": "Rustlang.Rust.GNU"
+				},
+				{
+					"PackageIdentifier": "Logitech.GHUB"
+				},
+				{
+					"PackageIdentifier": "Apple.Bonjour"
+				},
+				{
+					"PackageIdentifier": "Microsoft.CLRTypesSQLServer.2019"
+				},
+				{
+					"PackageIdentifier": "Neovim.Neovim"
+				},
+				{
+					"PackageIdentifier": "TheDocumentFoundation.LibreOffice"
+				},
+				{
+					"PackageIdentifier": "Apple.AppleApplicationSupport.x64"
+				},
+				{
+					"PackageIdentifier": "Oracle.JavaRuntimeEnvironment"
+				},
+				{
+					"PackageIdentifier": "Starship.Starship"
+				},
+				{
+					"PackageIdentifier": "EpicGames.EpicGamesLauncher"
+				},
+				{
+					"PackageIdentifier": "Nvidia.PhysX"
+				},
+				{
+					"PackageIdentifier": "wez.wezterm"
+				},
+				{
+					"PackageIdentifier": "Microsoft.PowerShell"
+				},
+				{
+					"PackageIdentifier": "Microsoft.GameInput"
+				},
+				{
+					"PackageIdentifier": "TeamSpeakSystems.TeamSpeakClient.Beta.6"
+				},
+				{
+					"PackageIdentifier": "Google.Chrome.EXE"
+				},
+				{
+					"PackageIdentifier": "LLVM.LLVM"
+				},
+				{
+					"PackageIdentifier": "Microsoft.Edge"
+				},
+				{
+					"PackageIdentifier": "OBSProject.OBSStudio"
+				},
+				{
+					"PackageIdentifier": "Valve.Steam"
+				},
+				{
+					"PackageIdentifier": "Ubisoft.Connect"
+				},
+				{
+					"PackageIdentifier": "WiresharkFoundation.Wireshark"
+				},
+				{
+					"PackageIdentifier": "Microsoft.VisualStudio.Community"
+				},
+				{
+					"PackageIdentifier": "Microsoft.VCRedist.2013.x64"
+				},
+				{
+					"PackageIdentifier": "Microsoft.DotNet.DesktopRuntime.6"
+				},
+				{
+					"PackageIdentifier": "Microsoft.WindowsInstallationAssistant"
+				},
+				{
+					"PackageIdentifier": "Rem0o.FanControl"
+				},
+				{
+					"PackageIdentifier": "Python.Launcher"
+				},
+				{
+					"PackageIdentifier": "Microsoft.VCRedist.2012.x86"
+				},
+				{
+					"PackageIdentifier": "Microsoft.VCRedist.2015+.x86"
+				},
+				{
+					"PackageIdentifier": "Microsoft.DotNet.AspNetCore.6"
+				},
+				{
+					"PackageIdentifier": "Mojang.MinecraftLauncher"
+				},
+				{
+					"PackageIdentifier": "Microsoft.DotNet.DesktopRuntime.10"
+				},
+				{
+					"PackageIdentifier": "Microsoft.VCRedist.2015+.x64"
+				},
+				{
+					"PackageIdentifier": "Microsoft.VCRedist.2008.x86"
+				},
+				{
+					"PackageIdentifier": "Microsoft.DotNet.Runtime.6"
+				},
+				{
+					"PackageIdentifier": "Microsoft.VCRedist.2013.x86"
+				},
+				{
+					"PackageIdentifier": "Apple.AppleSoftwareUpdate"
+				},
+				{
+					"PackageIdentifier": "Apple.AppleApplicationSupport.x86"
+				},
+				{
+					"PackageIdentifier": "Microsoft.XNARedist"
+				},
+				{
+					"PackageIdentifier": "Microsoft.VCRedist.2010.x86"
+				},
+				{
+					"PackageIdentifier": "Microsoft.VCRedist.2012.x64"
+				},
+				{
+					"PackageIdentifier": "Microsoft.DotNet.DesktopRuntime.8"
+				},
+				{
+					"PackageIdentifier": "Microsoft.DotNet.AspNetCore.8"
+				},
+				{
+					"PackageIdentifier": "BrechtSanders.WinLibs.POSIX.UCRT"
+				},
+				{
+					"PackageIdentifier": "BurntSushi.ripgrep.GNU"
+				},
+				{
+					"PackageIdentifier": "Discord.Discord"
+				},
+				{
+					"PackageIdentifier": "JesseDuffield.lazygit"
+				},
+				{
+					"PackageIdentifier": "LLVM.clangd"
+				},
+				{
+					"PackageIdentifier": "Modrinth.ModrinthApp"
+				},
+				{
+					"PackageIdentifier": "Proton.ProtonPass"
+				},
+				{
+					"PackageIdentifier": "Rufus.Rufus"
+				},
+				{
+					"PackageIdentifier": "Spotify.Spotify"
+				},
+				{
+					"PackageIdentifier": "ajeetdsouza.zoxide"
+				},
+				{
+					"PackageIdentifier": "direnv.direnv"
+				},
+				{
+					"PackageIdentifier": "junegunn.fzf"
+				},
+				{
+					"PackageIdentifier": "Proton.ProtonMail"
+				},
+				{
+					"PackageIdentifier": "sharkdp.fd"
+				},
+				{
+					"PackageIdentifier": "Proton.ProtonDrive"
+				},
+				{
+					"PackageIdentifier": "MSYS2.MSYS2"
+				},
+				{
+					"PackageIdentifier": "Microsoft.PowerToys"
+				},
+				{
+					"PackageIdentifier": "Microsoft.Teams"
+				},
+				{
+					"PackageIdentifier": "Microsoft.AppInstaller"
+				},
+				{
+					"PackageIdentifier": "Microsoft.UI.Xaml.2.7"
+				},
+				{
+					"PackageIdentifier": "Microsoft.UI.Xaml.2.8"
+				},
+				{
+					"PackageIdentifier": "Microsoft.VCLibs.Desktop.14"
+				},
+				{
+					"PackageIdentifier": "Microsoft.WindowsTerminal"
+				},
+				{
+					"PackageIdentifier": "Microsoft.WSL"
+				}
+			],
+			"SourceDetails": {
+				"Argument": "https://cdn.winget.microsoft.com/cache",
+				"Identifier": "Microsoft.Winget.Source_8wekyb3d8bbwe",
+				"Name": "winget",
+				"Type": "Microsoft.PreIndexed.Package"
+			}
+		},
+		{
+			"Packages": [
+				{
+					"PackageIdentifier": "9PM95FZQX3J5"
+				}
+			],
+			"SourceDetails": {
+				"Argument": "https://storeedgefd.dsx.mp.microsoft.com/v9.0",
+				"Identifier": "StoreEdgeFD",
+				"Name": "msstore",
+				"Type": "Microsoft.Rest"
+			}
+		}
+	],
+	"WinGetVersion": "1.12.460"
+}

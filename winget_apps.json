@@ -1,0 +1,114 @@
+{
+	"$schema": "https://aka.ms/winget-packages.schema.2.0.json",
+	"CreationDate": "2026-02-05T06:22:48.451-00:00",
+	"Sources": [
+		{
+			"Packages": [
+				{
+					"PackageIdentifier": "CoreyButler.NVMforWindows"
+				},
+				{
+					"PackageIdentifier": "7zip.7zip"
+				},
+				{
+					"PackageIdentifier": "Mozilla.Firefox.DeveloperEdition"
+				},
+				{
+					"PackageIdentifier": "Git.Git"
+				},
+				{
+					"PackageIdentifier": "GnuPG.GnuPG"
+				},
+				{
+					"PackageIdentifier": "Notepad++.Notepad++"
+				},
+				{
+					"PackageIdentifier": "Zen-Team.Zen-Browser"
+				},
+				{
+					"PackageIdentifier": "GitHub.cli"
+				},
+				{
+					"PackageIdentifier": "Rustlang.Rust.GNU"
+				},
+				{
+					"PackageIdentifier": "Neovim.Neovim"
+				},
+				{
+					"PackageIdentifier": "Oracle.JavaRuntimeEnvironment"
+				},
+				{
+					"PackageIdentifier": "Starship.Starship"
+				},
+				{
+					"PackageIdentifier": "wez.wezterm"
+				},
+				{
+					"PackageIdentifier": "Microsoft.PowerShell"
+				},
+				{
+					"PackageIdentifier": "LLVM.LLVM"
+				},
+				{
+					"PackageIdentifier": "WiresharkFoundation.Wireshark"
+				},
+				{
+					"PackageIdentifier": "Python.Launcher"
+				},
+				{
+					"PackageIdentifier": "BrechtSanders.WinLibs.POSIX.UCRT"
+				},
+				{
+					"PackageIdentifier": "BurntSushi.ripgrep.GNU"
+				},
+				{
+					"PackageIdentifier": "Discord.Discord"
+				},
+				{
+					"PackageIdentifier": "JesseDuffield.lazygit"
+				},
+				{
+					"PackageIdentifier": "LLVM.clangd"
+				},
+				{
+					"PackageIdentifier": "ajeetdsouza.zoxide"
+				},
+				{
+					"PackageIdentifier": "direnv.direnv"
+				},
+				{
+					"PackageIdentifier": "junegunn.fzf"
+				},
+				{
+					"PackageIdentifier": "MSYS2.MSYS2"
+				},
+				{
+					"PackageIdentifier": "Microsoft.PowerToys"
+				},
+				{
+					"PackageIdentifier": "Microsoft.AppInstaller"
+				}
+			],
+			"SourceDetails": {
+				"Argument": "https://cdn.winget.microsoft.com/cache",
+				"Identifier": "Microsoft.Winget.Source_8wekyb3d8bbwe",
+				"Name": "winget",
+				"Type": "Microsoft.PreIndexed.Package"
+			}
+		},
+		{
+			"Packages": [
+				{
+					"PackageIdentifier": "9PM95FZQX3J5"
+				}
+			],
+			"SourceDetails": {
+				"Argument": "https://storeedgefd.dsx.mp.microsoft.com/v9.0",
+				"Identifier": "StoreEdgeFD",
+				"Name": "msstore",
+				"Type": "Microsoft.Rest"
+			}
+		}
+	],
+	"WinGetVersion": "1.12.460"
+}
