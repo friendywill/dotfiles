@@ -13,6 +13,13 @@ personal configuration.
 /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/friendywill/dotfiles/refs/heads/master/scripts/setup.sh)"
 ```
 
+or
+> NOTE: This is yet to be completed, some unlisted manual steps are required.
+
+```ps1
+iex "&{$(irm 'https://get.chezmoi.io/ps1')} -b '$HOME/.local/bin' -- init --apply friendywill"
+```
+
 2. Ensure git, gcc and curl are installed.
 
 3. Install docker (The daemon cannot be installed through the Nix package
