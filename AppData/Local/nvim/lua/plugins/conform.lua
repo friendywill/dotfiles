@@ -1,19 +1,11 @@
 return {
-  "stevearc/conform.nvim",
-  config = function()
-    require("conform").setup({
+  {
+    "stevearc/conform.nvim",
+    opts = {
       formatters_by_ft = {
-        lua = { "stylua" },
-        json = { "fixjson" },
-        ["*"] = { "codespell" },
-        ["_"] = { "trim_whitespace" },
+        ["json"] = { "fixjson" },
+        ["yaml"] = { "yamlfmt" },
       },
-      default_format_opts = {
-        lsp_format = "fallback",
-      },
-      log_level = vim.log.levels.ERROR,
-      notify_on_error = true,
-      notify_no_formatters = true,
-    })
-  end,
+    },
+  },
 }
