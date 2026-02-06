@@ -8,9 +8,7 @@ Brewfile.lock.json
 ./LICENSE.md
 
 {{ if eq .chezmoi.os "windows" }}
-./dot_zshrc
-./dot_p10k.zsh
-./dot_config
+.config/nvim/
 {{ else }}
 ./AppData
 {{ end }}
