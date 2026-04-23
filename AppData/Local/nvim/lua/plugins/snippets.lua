@@ -1,0 +1,3 @@
+return {
+  "friendywill/friendly-snippets",
+}
