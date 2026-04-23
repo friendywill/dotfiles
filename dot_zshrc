@@ -259,11 +259,13 @@ plugins=(git)
 
 #[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 alias lg=lazygit
+alias prettier="npx prettier"
 alias nv=nvim
 alias zsh="source ~/.zshrc"
 alias lzd=lazydocker
 alias docker-compose="docker compose"
 alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
+alias bash=/usr/bin/bash
 alias cm=chezmoi
 if [ ! -d $XDG_CONFIG_HOME/subversion ]; then
   mkdir -p $XDG_CONFIG_HOME/subversion
@@ -485,3 +487,9 @@ fi
 export BUN_INSTALL="$XDG_DATA_HOME/bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+eval "$('conda' 'shell.zsh' 'hook')" 2> /dev/null
+# <<< conda initialize <<<
+
+eval "$(pixi completion --shell zsh)"
