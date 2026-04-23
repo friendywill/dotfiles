@@ -55,8 +55,10 @@
                 "size": 12.6562,
                 "weight": "medium"
             },
+            "opacity": 100,
             "padding": "0",
-            "scrollbarState": "hidden"
+            "scrollbarState": "hidden",
+            "useAcrylic": false
         },
         "list": [
             {
@@ -88,7 +90,7 @@
                 "commandline": "zsh",
                 "guid": "{caf7a17a-af01-4e60-bc01-0965acb4f106}",
                 "hidden": false,
-                "icon": "🔥",
+                "icon": "\ud83d\udd25",
                 "name": "ZSH",
                 "startingDirectory": "%USERPROFILE%"
             },
@@ -98,6 +100,30 @@
                 "icon": "C:/msys64/msys2.ico",
                 "name": "MSYS / MSYS2",
                 "startingDirectory": "%USERPROFILE%"
+            },
+            {
+                "guid": "{963ff2f7-6aed-5ce3-9d91-90d99571f53a}",
+                "hidden": true,
+                "name": "Ubuntu-24.04",
+                "source": "Windows.Terminal.Wsl"
+            },
+            {
+                "guid": "{d8e96812-b789-5068-a5ae-10b2fb53e95f}",
+                "hidden": false,
+                "name": "Ubuntu 24.04.1 LTS",
+                "source": "CanonicalGroupLimited.Ubuntu24.04LTS_79rhkp1fndgsc"
+            },
+            {
+                "commandline": "%WINDIR%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -ExecutionPolicy ByPass -NoExit -Command \"& 'C:\\Users\\wfriend\\AppData\\Local\\miniconda3\\shell\\condabin\\conda-hook.ps1' ; conda activate 'C:\\Users\\wfriend\\AppData\\Local\\miniconda3' \"",
+                "name": "Anaconda PowerShell Prompt (miniconda3)",
+                "icon": "C:\\Users\\wfriend\\AppData\\Local\\miniconda3\\Menu\\anaconda_powershell_prompt.ico",
+                "startingDirectory": "C:\\Users\\wfriend"
+            },
+            {
+                "commandline": "%WINDIR%\\System32\\cmd.exe \"/K\" C:\\Users\\wfriend\\AppData\\Local\\miniconda3\\Scripts\\activate.bat C:\\Users\\wfriend\\AppData\\Local\\miniconda3",
+                "name": "Anaconda Prompt (miniconda3)",
+                "icon": "C:\\Users\\wfriend\\AppData\\Local\\miniconda3\\Menu\\anaconda_prompt.ico",
+                "startingDirectory": "C:\\Users\\wfriend"
             }
         ]
     },
