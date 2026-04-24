@@ -9,11 +9,13 @@ personal configuration.
 
 1. Run:
 
+For Linux:
+
 ```bash
 /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/friendywill/dotfiles/refs/heads/master/scripts/setup.sh)"
 ```
 
-or
+or for Windows:
 > NOTE: This is yet to be completed, some unlisted manual steps are required.
 
 ```ps1
