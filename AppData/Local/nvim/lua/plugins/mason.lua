@@ -14,6 +14,8 @@ return {
       "ktfmt",
       "ktlint",
       "jq",
+      "markdown-toc",
+      "markdownlint-cli2",
     },
   },
 }

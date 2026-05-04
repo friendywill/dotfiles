@@ -1,7 +1,8 @@
 {
     "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
-    "actions": [
+    "actions": 
+    [
         {
             "command": "toggleFocusMode",
             "id": "User.toggleFocusMode"
@@ -14,7 +15,8 @@
     "defaultProfile": "{caf7a17a-af01-4e60-bc01-0965acb4f106}",
     "initialCols": 178,
     "initialRows": 40,
-    "keybindings": [
+    "keybindings": 
+    [
         {
             "id": "Terminal.DuplicatePaneAuto",
             "keys": "alt+shift+d"
@@ -24,7 +26,8 @@
             "keys": "ctrl+period"
         }
     ],
-    "newTabMenu": [
+    "newTabMenu": 
+    [
         {
             "icon": null,
             "profile": "{caf7a17a-af01-4e60-bc01-0965acb4f106}",
@@ -46,21 +49,23 @@
             "type": "profile"
         }
     ],
-    "profiles": {
-        "defaults": {
+    "profiles": 
+    {
+        "defaults": 
+        {
             "colorScheme": "Catppuccin Mocha",
-            "font": {
+            "font": 
+            {
                 "cellHeight": "1.2",
                 "face": "Hurmit Nerd Font Mono",
                 "size": 12.6562,
                 "weight": "medium"
             },
-            "opacity": 100,
             "padding": "0",
-            "scrollbarState": "hidden",
-            "useAcrylic": false
+            "scrollbarState": "hidden"
         },
-        "list": [
+        "list": 
+        [
             {
                 "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
@@ -90,7 +95,7 @@
                 "commandline": "zsh",
                 "guid": "{caf7a17a-af01-4e60-bc01-0965acb4f106}",
                 "hidden": false,
-                "icon": "\ud83d\udd25",
+                "icon": "\u00f0\u0178\u201d\u00a5",
                 "name": "ZSH",
                 "startingDirectory": "%USERPROFILE%"
             },
@@ -102,32 +107,29 @@
                 "startingDirectory": "%USERPROFILE%"
             },
             {
-                "guid": "{963ff2f7-6aed-5ce3-9d91-90d99571f53a}",
-                "hidden": true,
-                "name": "Ubuntu-24.04",
-                "source": "Windows.Terminal.Wsl"
-            },
-            {
-                "guid": "{d8e96812-b789-5068-a5ae-10b2fb53e95f}",
-                "hidden": false,
-                "name": "Ubuntu 24.04.1 LTS",
-                "source": "CanonicalGroupLimited.Ubuntu24.04LTS_79rhkp1fndgsc"
-            },
-            {
-                "commandline": "%WINDIR%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -ExecutionPolicy ByPass -NoExit -Command \"& 'C:\\Users\\wfriend\\AppData\\Local\\miniconda3\\shell\\condabin\\conda-hook.ps1' ; conda activate 'C:\\Users\\wfriend\\AppData\\Local\\miniconda3' \"",
+                "commandline": "%WINDIR%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -ExecutionPolicy ByPass -NoExit -Command \"& 'C:\\Users\\friendywill\\miniconda3\\shell\\condabin\\conda-hook.ps1' ; conda activate 'C:\\Users\\friendywill\\miniconda3' \"",
+                "guid": "{baef6041-a2f3-5472-b295-a7d7fb0ed62f}",
+                "icon": "C:\\Users\\friendywill\\miniconda3\\Menu\\anaconda_powershell_prompt.ico",
                 "name": "Anaconda PowerShell Prompt (miniconda3)",
-                "icon": "C:\\Users\\wfriend\\AppData\\Local\\miniconda3\\Menu\\anaconda_powershell_prompt.ico",
-                "startingDirectory": "C:\\Users\\wfriend"
+                "startingDirectory": "C:\\Users\\friendywill"
             },
             {
-                "commandline": "%WINDIR%\\System32\\cmd.exe \"/K\" C:\\Users\\wfriend\\AppData\\Local\\miniconda3\\Scripts\\activate.bat C:\\Users\\wfriend\\AppData\\Local\\miniconda3",
+                "commandline": "%WINDIR%\\System32\\cmd.exe \"/K\" C:\\Users\\friendywill\\miniconda3\\Scripts\\activate.bat C:\\Users\\friendywill\\miniconda3",
+                "guid": "{35427e1d-45ad-517a-8692-8d5e4093f90f}",
+                "icon": "C:\\Users\\friendywill\\miniconda3\\Menu\\anaconda_prompt.ico",
                 "name": "Anaconda Prompt (miniconda3)",
-                "icon": "C:\\Users\\wfriend\\AppData\\Local\\miniconda3\\Menu\\anaconda_prompt.ico",
-                "startingDirectory": "C:\\Users\\wfriend"
+                "startingDirectory": "C:\\Users\\friendywill"
+            },
+            {
+                "guid": "{3c6e18bb-a33e-5f30-a33f-b644f2b2e4ed}",
+                "hidden": false,
+                "name": "podman-machine-default",
+                "source": "Microsoft.WSL"
             }
         ]
     },
-    "schemes": [
+    "schemes": 
+    [
         {
             "background": "#1E1E2E",
             "black": "#45475A",
@@ -155,20 +157,24 @@
     "showTabsFullscreen": false,
     "showTabsInTitlebar": true,
     "showTerminalTitleInTitlebar": false,
-    "themes": [
+    "themes": 
+    [
         {
             "name": "Catppuccin Mocha",
-            "tab": {
+            "tab": 
+            {
                 "background": "#1E1E2EFF",
                 "iconStyle": "default",
                 "showCloseButton": "always",
                 "unfocusedBackground": null
             },
-            "tabRow": {
+            "tabRow": 
+            {
                 "background": "#181825FF",
                 "unfocusedBackground": "#11111BFF"
             },
-            "window": {
+            "window": 
+            {
                 "applicationTheme": "dark",
                 "experimental.rainbowFrame": false,
                 "frame": null,

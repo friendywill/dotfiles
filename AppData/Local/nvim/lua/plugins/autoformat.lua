@@ -14,6 +14,8 @@ return { -- Autoformat
       yaml = { "yamlfmt" },
       kotlin = { "ktfmt", "ktlint" },
       json = { "jq" },
+      markdown = { "markdown-toc", "markdownlint-cli2" },
+      _ = { "trim_whitespace" },
     },
     formatters = {
       injected = { options = { ignore_errors = true } },
