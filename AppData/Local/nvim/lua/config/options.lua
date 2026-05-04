@@ -4,3 +4,4 @@
 vim.g.autoformat = false
 local opt = vim.opt
 opt.colorcolumn = "80"
+opt.smoothscroll = false
