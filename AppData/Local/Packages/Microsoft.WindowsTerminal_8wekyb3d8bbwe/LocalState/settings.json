@@ -54,6 +54,7 @@
         "defaults": 
         {
             "colorScheme": "Catppuccin Mocha",
+            "cursorShape": "filledBox",
             "font": 
             {
                 "cellHeight": "1.2",
@@ -95,7 +96,7 @@
                 "commandline": "zsh",
                 "guid": "{caf7a17a-af01-4e60-bc01-0965acb4f106}",
                 "hidden": false,
-                "icon": "\u00f0\u0178\u201d\u00a5",
+                "icon": "\ud83d\udd25",
                 "name": "ZSH",
                 "startingDirectory": "%USERPROFILE%"
             },
