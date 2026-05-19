@@ -99,7 +99,9 @@
                 "hidden": false,
                 "icon": "\ud83d\udd25",
                 "name": "ZSH",
-                "startingDirectory": "%USERPROFILE%"
+                "pathTranslationStyle": "msys2",
+                "startingDirectory": "%USERPROFILE%",
+                "suppressApplicationTitle": true
             },
             {
                 "commandline": "C:/msys64/msys2_shell.cmd -defterm -here -no-start -msys -shell zsh",
