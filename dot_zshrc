@@ -102,11 +102,6 @@ fi
 source ~/.local/share/autocomplete
 export PATH="${HOME}/.pixi/bin:$PATH"
 
-# Wasmer
-# export WASMER_DIR="~/.wasmer"
-# [ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"
-# fi
-
 # bun completions
 [ -s "$XDG_DATA_HOME/bun/_bun" ] && source "$XDG_DATA_HOME/bun/_bun"
 
