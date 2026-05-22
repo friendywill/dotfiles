@@ -21,6 +21,8 @@ export XDG_CACHE_HOME="$HOME/.cache"
 # User-specific runtime files (e.g., sockets, temporary files)
 export XDG_RUNTIME_DIR="/run/user/$(id -u)"
 
+export PATH="/usr/bin:$PATH"
+
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
   zsh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 fi
