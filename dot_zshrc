@@ -22,6 +22,7 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_RUNTIME_DIR="/run/user/$(id -u)"
 
 export PATH="/usr/bin:$PATH"
+export PATH="/ucrt64/bin:$PATH"
 
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
   zsh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended 1> /dev/null
@@ -34,8 +35,6 @@ fi
 export ZSH_THEME="powerlevel10k/powerlevel10k"
 
 export ZSH="$HOME/.oh-my-zsh"
-
-plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -125,6 +124,8 @@ fi
 if [ -d /home/linuxbrew/.linuxbrew/bin/brew ]; then
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
+# shellcheck shell=bash
+
 # =============================================================================
 #
 # Utility functions for zoxide.
@@ -153,10 +154,31 @@ function __zoxide_hook() {
 }
 
 # Initialize hook.
-# shellcheck disable=SC2154
-if [[ ${precmd_functions[(Ie)__zoxide_hook]:-} -eq 0 ]] && [[ ${chpwd_functions[(Ie)__zoxide_hook]:-} -eq 0 ]]; then
-    chpwd_functions+=(__zoxide_hook)
-fi
+\builtin typeset -ga precmd_functions
+\builtin typeset -ga chpwd_functions
+# shellcheck disable=SC2034,SC2296
+precmd_functions=("${(@)precmd_functions:#__zoxide_hook}")
+# shellcheck disable=SC2034,SC2296
+chpwd_functions=("${(@)chpwd_functions:#__zoxide_hook}")
+chpwd_functions+=(__zoxide_hook)
+
+# Report common issues.
+function __zoxide_doctor() {
+    [[ ${_ZO_DOCTOR:-1} -ne 0 ]] || return 0
+    [[ $- == *i* ]] || return 0
+    [[ ${chpwd_functions[(Ie)__zoxide_hook]:-} -eq 0 ]] || return 0
+
+    _ZO_DOCTOR=0
+    \builtin printf '%s\n' \
+        'zoxide: detected a possible configuration issue.' \
+        'Please ensure that zoxide is initialized right at the end of your shell configuration file (usually ~/.zshrc).' \
+        '' \
+        'If the issue persists, consider filing an issue at:' \
+        'https://github.com/ajeetdsouza/zoxide/issues' \
+        '' \
+        'Disable this message by setting _ZO_DOCTOR=0.' \
+        '' >&2
+}
 
 # =============================================================================
 #
@@ -165,10 +187,12 @@ fi
 
 # Jump to a directory using only keywords.
 function __zoxide_z() {
-    # shellcheck disable=SC2199
+    __zoxide_doctor
     if [[ "$#" -eq 0 ]]; then
         __zoxide_cd ~
-    elif [[ "$#" -eq 1 ]] && { [[ -d "$1" ]] || [[ "$1" = '-' ]] || [[ "$1" =~ ^[-+][0-9]$ ]]; }; then
+    elif [[ "$#" -eq 1 ]] && [[ "$1" = '-' ]]; then
+        __zoxide_cd "${OLDPWD}"
+    elif [[ "$#" -eq 1 ]] && { [[ "$1" =~ ^[-+][0-9]+$ ]] || (\builtin cd -q -- "$1") &>/dev/null; }; then
         __zoxide_cd "$1"
     elif [[ "$#" -eq 2 ]] && [[ "$1" = "--" ]]; then
         __zoxide_cd "$2"
@@ -181,6 +205,7 @@ function __zoxide_z() {
 
 # Jump to a directory using interactive search.
 function __zoxide_zi() {
+    __zoxide_doctor
     \builtin local result
     result="$(\command zoxide query --interactive -- "$@")" && __zoxide_cd "${result}"
 }
@@ -214,10 +239,10 @@ if [[ -o zle ]]; then
         elif [[ "${words[-1]}" == '' ]]; then
             # Show completions for Space-Tab.
             # shellcheck disable=SC2086
-            __zoxide_result="$(\command zoxide query --exclude "$(__zoxide_pwd || \builtin true)" --interactive -- ${words[2,-1]})" || __zoxide_result=''
+            __zoxide_result="$(\command zoxide query --exclude "$(__zoxide_pwd || \builtin true)" --interactive -- ${words[2,-1]} 2>/dev/null)" || __zoxide_result=''
 
             # Set a result to ensure completion doesn't re-run
-            compadd -Q ""
+            compadd -Q -S "" -- ""
 
             # Bind '\e[0n' to helper function.
             \builtin bindkey '\e[0n' '__zoxide_z_complete_helper'
@@ -246,11 +271,6 @@ if [[ -o zle ]]; then
     [[ "${+functions[compdef]}" -ne 0 ]] && \compdef __zoxide_z_complete z
 fi
 
-# =============================================================================
-#
-# To initialize zoxide, add this to your configuration (usually ~/.zshrc):
-#
-eval "$(zoxide init zsh)"
 eval "$(pixi completion --shell zsh)"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -262,7 +282,12 @@ load_conda() {
     unalias $lazy_conda_alias
   done
 
-  __conda_prefix="$HOME/.miniconda3" # Set your conda Location
+  if [ ! -d "$HOME/.miniconda3" ]; then
+    __conda_prefix="$HOME/.miniconda3" # Set your conda Location
+  fi
+  if [ ! -d "$HOME/AppData/Local/mambaforge" ]; then
+    __conda_prefix="$HOME/AppData/Local/mambaforge" # Set your conda Location
+  fi
 
   # >>> conda initialize >>>
   __conda_setup="$('conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -270,7 +295,7 @@ load_conda() {
       eval "$__conda_setup"
   else
       if [ -f "$__conda_prefix/etc/profile.d/conda.sh" ]; then
-          . "$__conda_prefix/etc/profile.d/conda.sh"
+# . "$__conda_prefix/etc/profile.d/conda.sh"  # commented out by conda initialize
       else
           export PATH="$__conda_prefix/bin:$PATH"
       fi
