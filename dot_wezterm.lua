@@ -2,6 +2,28 @@ local wezterm = require("wezterm")
 local mux = wezterm.mux
 local config = {}
 
+config.window_background_opacity = 0.95
+config.text_background_opacity = 1.0
+
+-- NOTE: This has only been tested on a 1080P 16:9 screen
+-- Size + center on startup
+wezterm.on('gui-startup', function(cmd)
+  local screen = wezterm.gui.screens().active
+  local height_ratio = 0.9
+  local width_ratio = 0.98
+  local width = math.floor(screen.width * width_ratio)
+  local height = math.floor(screen.height * height_ratio - 13)
+
+  local _, _, window = mux.spawn_window(cmd or {})
+  local gui = window:gui_window()
+
+  gui:set_inner_size(width, height)
+  gui:set_position(
+    screen.x + math.floor((screen.width - width) / 2),
+    screen.y + math.floor((screen.height - height) / 2 - 20)
+  )
+end)
+
 
 config.launch_menu = {
     {
