@@ -48,6 +48,11 @@ config.keys = {
 			flags = "FUZZY|TABS|LAUNCH_MENU_ITEMS|WORKSPACES",
 		},
 	},
+  {
+    key = 'w',
+    mods = 'CTRL|SHIFT',
+    action = wezterm.action.CloseCurrentTab { confirm = false },
+  },
 }
 
 config.color_scheme = "Catppuccin Mocha"
