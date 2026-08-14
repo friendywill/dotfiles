@@ -2,13 +2,6 @@ local wezterm = require("wezterm")
 local mux = wezterm.mux
 local config = {}
 
-wezterm.plugin.require("https://gitlab.com/xarvex/presentation.wez").apply_to_config(config, {
-	font_size_multiplier = 1.3, -- sets for both "presentation" and "presentation_full"
-	presentation_full = {
-		font_weight = "Bold",
-		font_size_multiplier = 2.4, -- overwrites "font_size_multiplier" for "presentation_full"
-	},
-})
 
 config.launch_menu = {
     {
