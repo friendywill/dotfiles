@@ -1,4 +1,5 @@
 local wezterm = require("wezterm")
+local mux = wezterm.mux
 local config = {}
 
 wezterm.plugin.require("https://gitlab.com/xarvex/presentation.wez").apply_to_config(config, {
