@@ -95,6 +95,11 @@
             },
             {
                 "commandline": "zsh",
+                "compatibility.allowDECRQCRA": false,
+                "compatibility.allowOSC52": false,
+                "compatibility.input.forceVT": false,
+                "experimental.rainbowSuggestions": true,
+                "experimental.repositionCursorWithMouse": true,
                 "guid": "{caf7a17a-af01-4e60-bc01-0965acb4f106}",
                 "hidden": false,
                 "icon": "\ud83d\udd25",
@@ -129,6 +134,18 @@
                 "hidden": false,
                 "name": "podman-machine-default",
                 "source": "Microsoft.WSL"
+            },
+            {
+                "guid": "{bafee3bd-4d4b-55b3-8ff8-6dccaa4c55d7}",
+                "hidden": false,
+                "name": "Developer Command Prompt for VS 18",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{18cbf70c-0bd1-5a7d-b67a-39f5c4cb76aa}",
+                "hidden": false,
+                "name": "Developer PowerShell for VS 18",
+                "source": "Windows.Terminal.VisualStudio"
             }
         ]
     },
