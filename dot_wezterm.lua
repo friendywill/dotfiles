@@ -91,24 +91,31 @@ wezterm.on('augment-command-palette', function(window, pane)
   }
 end)
 
+local background_color = "#11111b"
+local foreground_color = "#89b4fa"
+local secondary_color = "#fab387"
+
 wezterm.on("update-right-status", function(window, pane)
   local date = wezterm.strftime '%d %b %H:%M'
 	window:set_right_status(
 	wezterm.format({
-		{ Background = { Color = "#11111b" } },
-		{ Foreground = { Color = "#89b4fa" } },
+		{ Background = { Color = background_color } },
+		{ Foreground = { Color = secondary_color } },
 		{ Text = SOLID_LEFT_ARROW },
-		{ Background = { Color = "#89b4fa" } },
-		{ Foreground = { Color = "#181825" } },
-		{ Text = window:active_workspace() },
-		{ Background = { Color = "#89b4fa" } },
-		{ Foreground = { Color = "#181825" } },
-		{ Text = " " },
-		{ Background = { Color = "#89b4fa" } },
-		{ Foreground = { Color = "#181825" } },
-		{ Text = date },
-		{ Background = { Color = "#11111b" } },
-		{ Foreground = { Color = "#89b4fa" } },
+		{ Background = { Color = secondary_color } },
+		{ Foreground = { Color = background_color } },
+		{ Text = wezterm.nerdfonts.fa_folder .. " " .. window:active_workspace() },
+		{ Background = { Color = background_color } },
+		{ Foreground = { Color = secondary_color } },
+		{ Text = SOLID_RIGHT_ARROW },
+		{ Background = { Color = background_color } },
+		{ Foreground = { Color = foreground_color } },
+		{ Text = SOLID_LEFT_ARROW },
+		{ Background = { Color = foreground_color } },
+		{ Foreground = { Color = background_color } },
+		{ Text = wezterm.nerdfonts.md_clock .. " " .. date },
+		{ Background = { Color = background_color } },
+		{ Foreground = { Color = foreground_color } },
 		{ Text = SOLID_RIGHT_ARROW },
 	})
   )
@@ -239,25 +246,25 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 
 	if tab.is_active then
 		return {
-			{ Background = { Color = "#11111b" } },
-			{ Foreground = { Color = "#89b4fa" } },
+			{ Background = { Color = background_color } },
+			{ Foreground = { Color = foreground_color } },
 			{ Text = SOLID_LEFT_ARROW },
-			{ Background = { Color = "#89b4fa" } },
+			{ Background = { Color = foreground_color } },
 			{ Foreground = { Color = "#181825" } },
 			{ Text = (tab.tab_index + 1) .. " " .. title .. " " },
-			{ Background = { Color = "#11111b" } },
-			{ Foreground = { Color = "#89b4fa" } },
+			{ Background = { Color = background_color } },
+			{ Foreground = { Color = foreground_color } },
 			{ Text = SOLID_RIGHT_ARROW },
 		}
 	else
 		return {
-			{ Background = { Color = "#11111b" } },
+			{ Background = { Color = background_color } },
 			{ Foreground = { Color = "#181825" } },
 			{ Text = SOLID_LEFT_ARROW },
 			{ Background = { Color = "#181825" } },
-			{ Foreground = { Color = "#89b4fa" } },
+			{ Foreground = { Color = foreground_color } },
 			{ Text = (tab.tab_index + 1) .. " " .. title .. " " },
-			{ Background = { Color = "#11111b" } },
+			{ Background = { Color = background_color } },
 			{ Foreground = { Color = "#181825" } },
 			{ Text = SOLID_RIGHT_ARROW },
 		}
