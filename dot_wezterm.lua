@@ -11,7 +11,7 @@ if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
 
-config.window_background_opacity = 0.85
+config.window_background_opacity = 1
 config.text_background_opacity = 1.0
 
 -- NOTE: This has only been tested on a 1080P 16:9 screen
@@ -91,9 +91,10 @@ wezterm.on('augment-command-palette', function(window, pane)
   }
 end)
 
-local background_color = "#11111b"
+local background_color = "rgb(30, 30, 46, 0.85)"
 local foreground_color = "#89b4fa"
 local secondary_color = "#fab387"
+local ternary_color = "#313244"
 
 wezterm.on("update-right-status", function(window, pane)
   local date = wezterm.strftime '%d %b %H:%M'
@@ -104,19 +105,31 @@ wezterm.on("update-right-status", function(window, pane)
 		{ Text = SOLID_LEFT_ARROW },
 		{ Background = { Color = secondary_color } },
 		{ Foreground = { Color = background_color } },
-		{ Text = wezterm.nerdfonts.fa_folder .. " " .. window:active_workspace() },
-		{ Background = { Color = background_color } },
+		{ Text = wezterm.nerdfonts.fa_folder .. " " },
+		{ Background = { Color = ternary_color } },
 		{ Foreground = { Color = secondary_color } },
+		{ Text = " " .. window:active_workspace() },
+		{ Background = { Color = background_color } },
+		{ Foreground = { Color = ternary_color } },
 		{ Text = SOLID_RIGHT_ARROW },
+		{ Background = { Color = background_color } },
+		{ Foreground = { Color = background_color } },
+		{ Text = " " },
 		{ Background = { Color = background_color } },
 		{ Foreground = { Color = foreground_color } },
 		{ Text = SOLID_LEFT_ARROW },
 		{ Background = { Color = foreground_color } },
 		{ Foreground = { Color = background_color } },
-		{ Text = wezterm.nerdfonts.md_clock .. " " .. date },
-		{ Background = { Color = background_color } },
+		{ Text = wezterm.nerdfonts.md_clock .. " " },
+		{ Background = { Color = ternary_color } },
 		{ Foreground = { Color = foreground_color } },
+		{ Text = " " .. date },
+		{ Background = { Color = background_color } },
+		{ Foreground = { Color = ternary_color } },
 		{ Text = SOLID_RIGHT_ARROW },
+			{ Background = { Color = background_color } },
+			{ Foreground = { Color = background_color } },
+      { Text = " " },
 	})
   )
 end)
@@ -208,6 +221,8 @@ config.window_decorations = "RESIZE"
 
 -- config.tab_bar_at_bottom = true
 
+config.colors = { tab_bar = {background = background_color }}
+
 config.animation_fps = 10
 
 config.font = wezterm.font("Hurmit Nerd Font Mono")
@@ -222,6 +237,7 @@ config.window_padding = {
 	top = 0,
 	bottom = 0,
 }
+
 
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
 	local original_title = tab.active_pane.title
@@ -239,33 +255,39 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 		title = title:match("([^/]+)$") or title
 		title = title:gsub("%.[^.]*$", "") or title
 	end
-	if #title > 12 then
-		title = string.sub(original_title, 1, 9) .. ".."
+	if #title > 11 then
+		title = string.sub(original_title, 1, 8) .. ".."
 		print(title)
 	end
 
 	if tab.is_active then
 		return {
 			{ Background = { Color = background_color } },
+			{ Foreground = { Color = background_color } },
+      { Text = " " },
+			{ Background = { Color = background_color } },
 			{ Foreground = { Color = foreground_color } },
 			{ Text = SOLID_LEFT_ARROW },
 			{ Background = { Color = foreground_color } },
-			{ Foreground = { Color = "#181825" } },
+			{ Foreground = { Color = background_color } },
 			{ Text = (tab.tab_index + 1) .. " " .. title .. " " },
 			{ Background = { Color = background_color } },
 			{ Foreground = { Color = foreground_color } },
 			{ Text = SOLID_RIGHT_ARROW },
+			{ Background = { Color = background_color } },
+			{ Foreground = { Color = background_color } },
+      { Text = " " }
 		}
 	else
 		return {
 			{ Background = { Color = background_color } },
-			{ Foreground = { Color = "#181825" } },
+			{ Foreground = { Color = ternary_color } },
 			{ Text = SOLID_LEFT_ARROW },
-			{ Background = { Color = "#181825" } },
+			{ Background = { Color = ternary_color } },
 			{ Foreground = { Color = foreground_color } },
 			{ Text = (tab.tab_index + 1) .. " " .. title .. " " },
 			{ Background = { Color = background_color } },
-			{ Foreground = { Color = "#181825" } },
+			{ Foreground = { Color = ternary_color } },
 			{ Text = SOLID_RIGHT_ARROW },
 		}
 	end
