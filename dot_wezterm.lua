@@ -11,8 +11,13 @@ if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
 
+
 config.window_background_opacity = 1
 config.text_background_opacity = 1.0
+config.max_fps = 120
+
+webgpu_power_preference = "HighPerformance"
+config.front_end = "WebGpu"
 
 -- NOTE: This has only been tested on a 1080P 16:9 screen
 -- Size + center on startup
