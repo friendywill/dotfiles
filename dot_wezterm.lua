@@ -11,7 +11,6 @@ if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
 
-
 config.window_background_opacity = 1
 config.text_background_opacity = 1.0
 config.max_fps = 120
@@ -45,55 +44,56 @@ wezterm.on("gui-startup", function(cmd)
 				end
 			end),
 		}),
-		_)
+		_
+	)
 end)
 
-wezterm.on('trigger-fuzzy-workspace-switcher', function(window, pane)
-  local choices = {
-    { id = '__CREATE_NEW__', label = '➕ [Create a brand new named workspace]' }
-  }
-  
-  for _, ws in ipairs(wezterm.mux.get_workspace_names()) do
-    table.insert(choices, { id = ws, label = '💼 ' .. ws })
-  end
+wezterm.on("trigger-fuzzy-workspace-switcher", function(window, pane)
+	local choices = {
+		{ id = "__CREATE_NEW__", label = "➕ [Create a brand new named workspace]" },
+	}
 
-  window:perform_action(
-    act.InputSelector {
-      title = 'Fuzzy Workspace Switcher',
-      choices = choices,
-      fuzzy = true,
-      action = wezterm.action_callback(function(win, p, id, label)
-        if id == '__CREATE_NEW__' then
-          win:perform_action(
-            act.PromptInputLine {
-              description = 'Enter name for your new workspace:',
-              action = wezterm.action_callback(function(w, pane_inner, line)
-                if line and line ~= "" then
-                  w:perform_action(act.SwitchToWorkspace { name = line }, pane_inner)
-                end
-              end),
-            },
-            p
-          )
-        elseif id then
-          win:perform_action(act.SwitchToWorkspace { name = id }, p)
-        end
-      end),
-    },
-    pane
-  )
+	for _, ws in ipairs(wezterm.mux.get_workspace_names()) do
+		table.insert(choices, { id = ws, label =  ws })
+	end
+
+	window:perform_action(
+		act.InputSelector({
+			title = "Fuzzy Workspace Switcher",
+			choices = choices,
+			fuzzy = true,
+			action = wezterm.action_callback(function(win, p, id, label)
+				if id == "__CREATE_NEW__" then
+					win:perform_action(
+						act.PromptInputLine({
+							description = "Enter name for your new workspace:",
+							action = wezterm.action_callback(function(w, pane_inner, line)
+								if line and line ~= "" then
+									w:perform_action(act.SwitchToWorkspace({ name = line }), pane_inner)
+								end
+							end),
+						}),
+						p
+					)
+				elseif id then
+					win:perform_action(act.SwitchToWorkspace({ name = id }), p)
+				end
+			end),
+		}),
+		pane
+	)
 end)
 
 -- 2. Inject it into the Command Palette
-wezterm.on('augment-command-palette', function(window, pane)
-  return {
-    {
-      brief = 'Workspace: Switch or Create',
-      icon = 'md_folder_swap',
-      -- Emit the custom event when selected in the palette
-      action = act.EmitEvent('trigger-fuzzy-workspace-switcher'),
-    },
-  }
+wezterm.on("augment-command-palette", function(window, pane)
+	return {
+		{
+			brief = "Workspace: Switch or Create",
+			icon = "md_folder_swap",
+			-- Emit the custom event when selected in the palette
+			action = act.EmitEvent("trigger-fuzzy-workspace-switcher"),
+		},
+	}
 end)
 
 local background_color = "rgb(30, 30, 46, 0.85)"
@@ -102,9 +102,8 @@ local secondary_color = "#fab387"
 local ternary_color = "#313244"
 
 wezterm.on("update-right-status", function(window, pane)
-  local date = wezterm.strftime '%d %b %H:%M'
-	window:set_right_status(
-	wezterm.format({
+	local date = wezterm.strftime("%d %b %H:%M")
+	window:set_right_status(wezterm.format({
 		{ Background = { Color = background_color } },
 		{ Foreground = { Color = secondary_color } },
 		{ Text = SOLID_LEFT_ARROW },
@@ -132,11 +131,10 @@ wezterm.on("update-right-status", function(window, pane)
 		{ Background = { Color = background_color } },
 		{ Foreground = { Color = ternary_color } },
 		{ Text = SOLID_RIGHT_ARROW },
-			{ Background = { Color = background_color } },
-			{ Foreground = { Color = background_color } },
-      { Text = " " },
-	})
-  )
+		{ Background = { Color = background_color } },
+		{ Foreground = { Color = background_color } },
+		{ Text = " " },
+	}))
 end)
 
 config.launch_menu = {
@@ -156,23 +154,16 @@ config.launch_menu = {
 config.leader = { key = "b", mods = "CTRL", timeout_milliseconds = 5000 }
 
 config.keys = {
-	{
-		key = "t",
-		mods = "CTRL",
-		action = act.ShowLauncherArgs({
-			flags = "FUZZY|LAUNCH_MENU_ITEMS",
-		}),
-	},
-	{
-		key = "w",
-		mods = "CTRL|SHIFT",
-		action = act.CloseCurrentTab({ confirm = false }),
-	},
-	{ key = "o", mods = "LEADER", action = act.EmitEvent('trigger-fuzzy-workspace-switcher')},
+	{ key = "t", mods = "CTRL", action = act.ShowLauncherArgs({ flags = "FUZZY|LAUNCH_MENU_ITEMS" }) },
+	{ key = "w", mods = "CTRL|SHIFT", action = act.CloseCurrentTab({ confirm = false }) },
+	{ key = "o", mods = "LEADER", action = act.EmitEvent("trigger-fuzzy-workspace-switcher") },
+  { key = 'k', mods = 'CTRL|SHIFT', action = wezterm.action.ClearScrollback 'ScrollbackAndViewport', },
 	-- Send Ctrl+b to terminal when pressed twice
 	{ key = "b", mods = "LEADER|CTRL", action = act.SendString("\x02") },
 
 	{ key = "w", mods = "LEADER", action = act.ActivateKeyTable({ name = "window_mode", one_shot = true }) },
+
+  { key = "z", mods = "LEADER", action = wezterm.action.TogglePaneZoomState, },
 
 	-- Flat binding
 	{ key = "-", mods = "LEADER", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
@@ -190,10 +181,10 @@ config.keys = {
 	{ key = "l", mods = "LEADER", action = act.ActivatePaneDirection("Right") },
 
 	-- Resizing
-	{ key = "h", mods = "CTRL", action = act.AdjustPaneSize({ "Left", 5 }) },
-	{ key = "j", mods = "CTRL", action = act.AdjustPaneSize({ "Down", 5 }) },
-	{ key = "k", mods = "CTRL", action = act.AdjustPaneSize({ "Up", 5 }) },
-	{ key = "l", mods = "CTRL", action = act.AdjustPaneSize({ "Right", 5 }) },
+	{ key = "h", mods = "LEADER|CTRL", action = act.AdjustPaneSize({ "Left", 5 }) },
+	{ key = "j", mods = "LEADER|CTRL", action = act.AdjustPaneSize({ "Down", 5 }) },
+	{ key = "k", mods = "LEADER|CTRL", action = act.AdjustPaneSize({ "Up", 5 }) },
+	{ key = "l", mods = "LEADER|CTRL", action = act.AdjustPaneSize({ "Right", 5 }) },
 
 	-- Tab Navigation (1-9)
 	{ key = "1", mods = "LEADER", action = act.ActivateTab(0) },
@@ -226,7 +217,7 @@ config.window_decorations = "RESIZE"
 
 -- config.tab_bar_at_bottom = true
 
-config.colors = { tab_bar = {background = background_color }}
+config.colors = { tab_bar = { background = background_color } }
 
 config.animation_fps = 10
 
@@ -242,7 +233,6 @@ config.window_padding = {
 	top = 0,
 	bottom = 0,
 }
-
 
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
 	local original_title = tab.active_pane.title
@@ -269,7 +259,7 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 		return {
 			{ Background = { Color = background_color } },
 			{ Foreground = { Color = background_color } },
-      { Text = " " },
+			{ Text = " " },
 			{ Background = { Color = background_color } },
 			{ Foreground = { Color = foreground_color } },
 			{ Text = SOLID_LEFT_ARROW },
@@ -281,7 +271,7 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 			{ Text = SOLID_RIGHT_ARROW },
 			{ Background = { Color = background_color } },
 			{ Foreground = { Color = background_color } },
-      { Text = " " }
+			{ Text = " " },
 		}
 	else
 		return {
