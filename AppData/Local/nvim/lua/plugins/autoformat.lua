@@ -10,6 +10,7 @@ return { -- Autoformat
     formatters_by_ft = {
       lua = { "stylua" },
       python = { "isort", "autopep8" },
+      typescript = {"prettierd"},
       html = { "prettierd" },
       yaml = { "yamlfmt" },
       kotlin = { "ktfmt", "ktlint" },
