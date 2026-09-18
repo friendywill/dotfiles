@@ -16,6 +16,7 @@ return {
       "jq",
       "markdown-toc",
       "markdownlint-cli2",
+      "eslint_d",
     },
   },
 }
