@@ -62,7 +62,7 @@
                 "size": 12.6562,
                 "weight": "medium"
             },
-            "opacity": 86,
+            "opacity": 100,
             "padding": "0",
             "scrollbarState": "hidden"
         },
@@ -146,6 +146,12 @@
                 "hidden": false,
                 "name": "Developer PowerShell for VS 18",
                 "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{05f67a54-367b-5ca7-8793-bb65708bc8ff}",
+                "hidden": false,
+                "name": "podman-rootful",
+                "source": "Microsoft.WSL"
             }
         ]
     },
