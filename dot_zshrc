@@ -61,7 +61,7 @@ fi
 export PATH="$PATH:/snap/bin:$HOME/.local/bin"
 
 alias lg=lazygit
-alias tuios="env -u FPATH tuios"
+alias tuios="SHELL=/bin/zsh env -u FPATH tuios"
 alias prettier="npx prettier"
 alias nv=nvim
 # alias zsh="source ~/.zshrc"
