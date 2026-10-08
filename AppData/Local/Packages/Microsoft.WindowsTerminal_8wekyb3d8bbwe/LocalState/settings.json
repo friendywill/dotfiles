@@ -1,7 +1,7 @@
 {
     "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
-    "actions": 
+    "actions":
     [
         {
             "command": "toggleFocusMode",
@@ -15,7 +15,7 @@
     "defaultProfile": "{caf7a17a-af01-4e60-bc01-0965acb4f106}",
     "initialCols": 178,
     "initialRows": 40,
-    "keybindings": 
+    "keybindings":
     [
         {
             "id": "Terminal.DuplicatePaneAuto",
@@ -26,7 +26,7 @@
             "keys": "ctrl+period"
         }
     ],
-    "newTabMenu": 
+    "newTabMenu":
     [
         {
             "icon": null,
@@ -49,13 +49,13 @@
             "type": "profile"
         }
     ],
-    "profiles": 
+    "profiles":
     {
-        "defaults": 
+        "defaults":
         {
             "colorScheme": "Catppuccin Mocha",
             "cursorShape": "filledBox",
-            "font": 
+            "font":
             {
                 "cellHeight": "1.2",
                 "face": "Hurmit Nerd Font Mono",
@@ -66,7 +66,7 @@
             "padding": "0",
             "scrollbarState": "hidden"
         },
-        "list": 
+        "list":
         [
             {
                 "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
@@ -116,18 +116,18 @@
                 "startingDirectory": "%USERPROFILE%"
             },
             {
-                "commandline": "%WINDIR%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -ExecutionPolicy ByPass -NoExit -Command \"& 'C:\\Users\\friendywill\\miniconda3\\shell\\condabin\\conda-hook.ps1' ; conda activate 'C:\\Users\\friendywill\\miniconda3' \"",
+                "commandline": "\"%WINDIR%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -ExecutionPolicy ByPass -NoExit -Command & 'C:\\Users\\wfriend\\AppData\\Local\\miniconda3\\shell\\condabin\\conda-hook.ps1' ; conda activate 'C:\\Users\\wfriend\\AppData\\Local\\miniconda3' ",
                 "guid": "{baef6041-a2f3-5472-b295-a7d7fb0ed62f}",
-                "icon": "C:\\Users\\friendywill\\miniconda3\\Menu\\anaconda_powershell_prompt.ico",
+                "icon": "C:\\Users\\wfriend\\AppData\\Local\\miniconda3\\Menu\\anaconda_powershell_prompt.ico",
                 "name": "Anaconda PowerShell Prompt (miniconda3)",
-                "startingDirectory": "C:\\Users\\friendywill"
+                "startingDirectory": "%USERPROFILE%"
             },
             {
-                "commandline": "%WINDIR%\\System32\\cmd.exe \"/K\" C:\\Users\\friendywill\\miniconda3\\Scripts\\activate.bat C:\\Users\\friendywill\\miniconda3",
+                "commandline": "\"%WINDIR%\\System32\\cmd.exe\" /K C:\\Users\\wfriend\\AppData\\Local\\miniconda3\\Scripts\\activate.bat C:\\Users\\wfriend\\AppData\\Local\\miniconda3",
                 "guid": "{35427e1d-45ad-517a-8692-8d5e4093f90f}",
-                "icon": "C:\\Users\\friendywill\\miniconda3\\Menu\\anaconda_prompt.ico",
+                "icon": "C:\\Users\\wfriend\\AppData\\Local\\miniconda3\\Menu\\anaconda_prompt.ico",
                 "name": "Anaconda Prompt (miniconda3)",
-                "startingDirectory": "C:\\Users\\friendywill"
+                "startingDirectory": "%USERPROFILE%"
             },
             {
                 "guid": "{3c6e18bb-a33e-5f30-a33f-b644f2b2e4ed}",
@@ -146,16 +146,10 @@
                 "hidden": false,
                 "name": "Developer PowerShell for VS 18",
                 "source": "Windows.Terminal.VisualStudio"
-            },
-            {
-                "guid": "{05f67a54-367b-5ca7-8793-bb65708bc8ff}",
-                "hidden": false,
-                "name": "podman-rootful",
-                "source": "Microsoft.WSL"
             }
         ]
     },
-    "schemes": 
+    "schemes":
     [
         {
             "background": "#1E1E2E",
@@ -184,23 +178,23 @@
     "showTabsFullscreen": false,
     "showTabsInTitlebar": true,
     "showTerminalTitleInTitlebar": false,
-    "themes": 
+    "themes":
     [
         {
             "name": "Catppuccin Mocha",
-            "tab": 
+            "tab":
             {
                 "background": "#1E1E2EFF",
                 "iconStyle": "default",
                 "showCloseButton": "always",
                 "unfocusedBackground": null
             },
-            "tabRow": 
+            "tabRow":
             {
                 "background": "#181825FF",
                 "unfocusedBackground": "#11111BFF"
             },
-            "window": 
+            "window":
             {
                 "applicationTheme": "dark",
                 "experimental.rainbowFrame": false,

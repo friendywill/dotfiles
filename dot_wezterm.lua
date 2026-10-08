@@ -2,6 +2,14 @@ local wezterm = require("wezterm")
 local act = wezterm.action
 local mux = wezterm.mux
 local config = {}
+
+-- for _, file in ipairs(wezterm.read_dir("C:\\Users\\wfriend\\.config\\wezterm\\")) do
+--   if file:match('%.lua$') then
+--     dofile(file)
+--   end
+-- end
+
+
 -- The filled in variant of the < symbol
 local SOLID_LEFT_ARROW = wezterm.nerdfonts.ple_left_half_circle_thick
 
@@ -15,7 +23,7 @@ config.window_background_opacity = 1
 config.text_background_opacity = 1.0
 config.max_fps = 120
 
-webgpu_power_preference = "HighPerformance"
+config.webgpu_power_preference = "HighPerformance"
 config.front_end = "WebGpu"
 
 -- NOTE: This has only been tested on a 1080P 16:9 screen
@@ -151,7 +159,7 @@ config.launch_menu = {
 		args = { "cmd.exe" },
 	},
 }
--- config.leader = { key = "b", mods = "CTRL", timeout_milliseconds = 5000 }
+config.leader = { key = "b", mods = "CTRL", timeout_milliseconds = 5000 }
 
 config.keys = {
 	{ key = "t", mods = "CTRL", action = act.ShowLauncherArgs({ flags = "FUZZY|LAUNCH_MENU_ITEMS" }) },
@@ -219,7 +227,7 @@ config.window_decorations = "RESIZE"
 
 config.colors = { tab_bar = { background = background_color } }
 
-config.animation_fps = 10
+config.animation_fps = 120
 
 config.font = wezterm.font("Hurmit Nerd Font Mono")
 

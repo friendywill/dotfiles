@@ -3,7 +3,7 @@ return {
   opts = {
     scroll = {
       animate = {
-        duration = { step = 5, total = 50 }, -- Lower numbers = faster animation (Defaults are step = 10, total = 200)
+        duration = { step = 10, total = 200 }, -- Lower numbers = faster animation (Defaults are step = 10, total = 200)
       },
       animate_repeat = {
         delay = 100,
