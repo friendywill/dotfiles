@@ -277,6 +277,9 @@ fi
 eval "$(pixi completion --shell zsh)"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export PATH=$PATH:$HOME/AppData/Local/miniconda3/Scripts
+
 lazy_conda_aliases=('python' 'conda')
 
 load_conda() {
@@ -285,13 +288,12 @@ load_conda() {
     unalias $lazy_conda_alias
   done
 
+  if [ ! -d "$HOME/AppData/Local/miniconda3" ]; then
+    __conda_prefix="$USERPROFILE/AppData/Local/miniconda3" # Set your conda Location
+  fi
   if [ ! -d "$HOME/.miniconda3" ]; then
     __conda_prefix="$HOME/.miniconda3" # Set your conda Location
   fi
-  if [ ! -d "$HOME/AppData/Local/mambaforge" ]; then
-    __conda_prefix="$HOME/AppData/Local/mambaforge" # Set your conda Location
-  fi
-
   # >>> conda initialize >>>
   __conda_setup="$('conda' 'shell.zsh' 'hook' 2> /dev/null)"
   if [ $? -eq 0 ]; then
