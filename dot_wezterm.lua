@@ -159,7 +159,6 @@ config.launch_menu = {
 		args = { "cmd.exe" },
 	},
 }
-config.leader = { key = "b", mods = "CTRL", timeout_milliseconds = 5000 }
 
 config.keys = {
 	{ key = "t", mods = "CTRL", action = act.ShowLauncherArgs({ flags = "FUZZY|LAUNCH_MENU_ITEMS" }) },
