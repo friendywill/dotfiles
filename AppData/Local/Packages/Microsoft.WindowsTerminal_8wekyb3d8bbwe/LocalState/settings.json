@@ -14,7 +14,7 @@
     "copyOnSelect": false,
     "defaultProfile": "{caf7a17a-af01-4e60-bc01-0965acb4f106}",
     "initialCols": 178,
-    "initialRows": 40,
+    "initialRows": 48,
     "keybindings":
     [
         {
@@ -54,6 +54,7 @@
         "defaults":
         {
             "colorScheme": "Catppuccin Mocha",
+            "compatibility.allowDECRQCRA": true,
             "cursorShape": "filledBox",
             "font":
             {
