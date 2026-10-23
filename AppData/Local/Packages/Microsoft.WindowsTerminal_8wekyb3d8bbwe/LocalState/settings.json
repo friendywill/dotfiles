@@ -53,19 +53,24 @@
     {
         "defaults":
         {
+            "adjustIndistinguishableColors": "automatic",
             "colorScheme": "Catppuccin Mocha",
             "compatibility.allowDECRQCRA": true,
+            "compatibility.allowOSC52": true,
             "cursorShape": "filledBox",
+            "experimental.retroTerminalEffect": false,
             "font":
             {
                 "cellHeight": "1.2",
                 "face": "Hurmit Nerd Font Mono",
+                "features": {},
                 "size": 12.6562,
                 "weight": "medium"
             },
-            "opacity": 100,
+            "opacity": 80,
             "padding": "0",
-            "scrollbarState": "hidden"
+            "scrollbarState": "hidden",
+            "useAcrylic": true
         },
         "list":
         [
@@ -97,7 +102,6 @@
             {
                 "commandline": "zsh",
                 "compatibility.allowDECRQCRA": false,
-                "compatibility.allowOSC52": false,
                 "compatibility.input.forceVT": false,
                 "experimental.rainbowSuggestions": true,
                 "experimental.repositionCursorWithMouse": true,
