@@ -5,6 +5,8 @@ return {
       "stylua",
       "fixjson",
       "yamlfmt",
+      "black",
+      "docformatter",
       "basedpyright",
       "isort",
       "autopep8",

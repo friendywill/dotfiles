@@ -9,7 +9,7 @@ return { -- Autoformat
     },
     formatters_by_ft = {
       lua = { "stylua" },
-      python = { "isort", "autopep8" },
+      python = { "isort", "autopep8", "black", "docformatter"},
       typescript = {"prettierd"},
       html = { "prettierd" },
       yaml = { "yamlfmt" },
