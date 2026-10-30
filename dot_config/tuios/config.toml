@@ -127,17 +127,17 @@ kitty_placeholders = 'auto'
 auto_enter_terminal_on_focus = 'off'
 click_to_type = 'double'
 dockbar_position = 'top'
-preferred_shell = ''
+preferred_shell = 'zsh'
 motion = 'full'
 modal_dim = 45
 whichkey_position = ''
 window_title_position = 'hidden'
 hide_clock = false
-show_clock = false
-show_cpu = false
-show_ram = false
+show_clock = true
+show_cpu = true
+show_ram = true
 theme = 'catppuccin_mocha'
-shared_borders = false
+shared_borders = true
 border_focused_color = ''
 border_unfocused_color = ''
 window_title_format = ''
@@ -262,10 +262,6 @@ switch_workspace_9 = ['alt+9']
 
 [keybindings.layout]
 equalize_splits = ['=']
-focus_down = ['j']
-focus_left = ['h']
-focus_right = ['l']
-focus_up = ['k']
 preselect_down = ['alt+j']
 preselect_left = ['alt+h']
 preselect_right = ['alt+l']
@@ -299,6 +295,8 @@ toggle_help = ['?']
 toggle_spotlight = ['b']
 
 [keybindings.navigation]
+next_workspace = ['alt+n']
+prev_workspace = ['alt+p']
 [keybindings.restore_minimized]
 restore_minimized_1 = ['shift+1', '!']
 restore_minimized_2 = ['shift+2', '@']
@@ -333,8 +331,8 @@ prefix_minimize = ['m']
 prefix_new_window = []
 prefix_next_attention = ['o']
 prefix_next_finished = ['O']
-prefix_next_window = ['n', 'tab']
-prefix_prev_window = ['p', 'shift+tab']
+prefix_next_window = ['tab']
+prefix_prev_window = ['shift+tab']
 prefix_quit = ['q']
 prefix_rename_window = ['r']
 prefix_review = ['v']
@@ -448,13 +446,13 @@ snap_corner_4 = ['4']
 
 [keybindings.terminal_mode]
 terminal_exit_mode = ['alt+esc']
-terminal_focus_down = ['alt+down']
-terminal_focus_left = ['alt+left']
-terminal_focus_right = ['alt+right']
-terminal_focus_up = ['alt+up']
-terminal_next_window = ['alt+n']
+terminal_focus_down = ['alt+j']
+terminal_focus_left = ['alt+h']
+terminal_focus_right = ['alt+l']
+terminal_focus_up = ['alt+k']
+terminal_next_window = []
 terminal_paste_host = ['ctrl+shift+v', 'super+v', 'shift+super+v']
-terminal_prev_window = ['alt+p']
+terminal_prev_window = []
 terminal_scroll_down = ['shift+down']
 terminal_scroll_up = ['shift+up']
 
