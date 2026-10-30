@@ -13,6 +13,7 @@ return { -- Autoformat
       typescript = {"prettierd"},
       html = { "prettierd" },
       yaml = { "yamlfmt" },
+      toml = { "taplo" },
       kotlin = { "ktfmt", "ktlint" },
       json = { "jq" },
       markdown = { "markdown-toc", "markdownlint-cli2" },

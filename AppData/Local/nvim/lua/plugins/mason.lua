@@ -19,6 +19,7 @@ return {
       "markdown-toc",
       "markdownlint-cli2",
       "eslint_d",
+      "taplo"
     },
   },
 }
