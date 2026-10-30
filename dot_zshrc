@@ -43,6 +43,22 @@ source $ZSH/oh-my-zsh.sh
 # Add deno completions to search path
 if [[ ":$FPATH:" != *":$HOME/.zsh/completions:"* ]]; then export FPATH="$HOME/zsh/completions:$FPATH"; fi
 
+pixi_activate() {
+  local hook
+  hook="$(pixi shell-hook -s bash "$@" | sed "s/;/:/g")" || return
+  eval "$hook"
+  export PATH="$(cygpath -u -p "$PATH")"
+
+  # drop the hook's pixi() wrapper so `pixi` runs the real binary
+  unset -f pixi 2>/dev/null
+
+  # convert PATH and the path-valued vars to POSIX form
+  export PATH="$(cygpath -u -p "$PATH")"
+  [ -n "$CONDA_PREFIX" ]          && export CONDA_PREFIX="$(cygpath -u "$CONDA_PREFIX")"
+  [ -n "$PIXI_EXE" ]              && export PIXI_EXE="$(cygpath -u "$PIXI_EXE")"
+  [ -n "$PIXI_PROJECT_ROOT" ]     && export PIXI_PROJECT_ROOT="$(cygpath -u "$PIXI_PROJECT_ROOT")"
+  [ -n "$PIXI_PROJECT_MANIFEST" ] && export PIXI_PROJECT_MANIFEST="$(cygpath -u "$PIXI_PROJECT_MANIFEST")"
+}
 
 # TMUX
 if [ -n "$TMUX" ]; then
